@@ -1,0 +1,69 @@
+[user]
+   name = GalenYost
+   email = brawlstarser086@gmail.com
+
+[core]
+   compression = 9
+   whitespace = error
+   preloadindex = true
+
+[advice]
+   addEmptyPathspec = false
+   pushNonFastForward = false
+   statusHits = false
+
+[init]
+   defaultBranch = master
+
+[status]
+   branch = true
+   showStash = true
+   showUntrackedFiles = all
+
+[diff]
+   context = 3
+   renames = copies
+   interHunkContext = 10
+
+[pager]
+   diff = diff-so-fancy
+
+[diff-so-fancy]
+   markEmptyLines = false
+
+[color "diff"]
+   meta = black bold
+   frag = magenta
+   context = white
+   whitespace = yellow reverse
+   old = red
+
+[interactive]
+   diffFilter = diff-so-fancy --patch
+   singlekey = true
+
+[push]
+   autoSetupRemote = true
+   default = current
+   followTags = true
+
+[pull]
+   default = current
+   rebase = true
+
+[rebase]
+   autoStash = true
+   missingCommitsCheck = warn
+
+[color "branch"]
+   current = magenta
+   local = default
+   remote = yellow
+   upstream = green
+   plain = blue
+
+[url "git@github.com:GalenYost"]
+   insteadOf = "my:"
+
+[url "git@github.com:"]
+   insteadOf = "gh:"
