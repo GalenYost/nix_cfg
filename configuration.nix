@@ -10,7 +10,6 @@ in {
       ./security.nix
       ./services.nix
       ./programs.nix
-      ./boot.nix
       ./users.nix
       ./packages.nix
       ./network.nix

@@ -8,26 +8,35 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" "nouveau" ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+   boot.initrd.kernelModules = [ "dm-snapshot" "nouveau" "dm-mod" ];
+   boot.kernelModules = [ "kvm-amd" ];
+   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/vg0/root";
-    fsType = "ext4";
-  };
-  fileSystems."/boot" = {
-    device = "/dev/nvme0n1p1";
-    fsType = "vfat";
-    options = [ "noatime" ];
-  };
+   boot.initrd.systemd.enable = true;
+   boot.initrd.services.lvm.enable = true;
 
-  swapDevices = [ ];
+   boot.loader.systemd-boot.enable = true;
+   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
+   system.autoUpgrade.enable = true;
+   system.autoUpgrade.allowReboot = false;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+   fileSystems."/" = {
+      device = "/dev/vg0/root";
+      fsType = "ext4";
+   };
+   fileSystems."/boot" = {
+      device = "/dev/nvme0n1p1";
+      fsType = "vfat";
+      options = [ "noatime" ];
+   };
+
+   swapDevices = [ ];
+
+   networking.useDHCP = lib.mkDefault true;
+   # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
+
+   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

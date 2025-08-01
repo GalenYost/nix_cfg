@@ -5,12 +5,13 @@
       nerd-fonts.iosevka
       nerd-fonts.iosevka-term
       nerd-fonts.jetbrains-mono
-      inter
+      inter roboto
    ];
 
    environment.variables = lib.mkForce {
       GTK_THEME = "Adwaita-dark";
       XCURSOR_THEME = "Adwaita";
+      XCURSOR_SIZE = "24";
       QT_QPA_PLATFORM = "wayland";
    };
 
@@ -30,8 +31,8 @@
       vimPlugins.packer-nvim
       xdg-desktop-portal polkit_gnome
       xdg-desktop-portal-wlr
-      pipewire wireplumber
-      adwaita-icon-theme
+      pipewire wireplumber gfn-electron
+      adwaita-icon-theme unzip p7zip
       mesa glib libGL libxkbcommon
       xorg.libX11 xorg.libXext xorg.libXrender
       xorg.libXtst pwvucontrol
