@@ -8,10 +8,6 @@
    };
 
    programs.xfconf.enable = true;
-   programs.thunar.enable = true;
-   programs.thunar.plugins = with pkgs.xfce; [
-      thunar-volman
-   ];
 
    systemd.services.flatpak-repo = {
       wantedBy = [ "multi-user.target" ];

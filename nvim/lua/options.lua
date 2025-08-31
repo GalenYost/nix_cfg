@@ -18,8 +18,12 @@ vim.o.termguicolors = true
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.netrw_banner = 0
-vim.g.moonflyTransparent = true
+
+vim.diagnostic.config({
+   virtual_text = true,
+   signs = true
+})
+vim.opt.signcolumn = 'yes'
 
 if vim.fn.has('clipboard') == 1 then
   local is_wayland = os.getenv("WAYLAND_DISPLAY") ~= nil

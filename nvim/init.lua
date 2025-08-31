@@ -1,84 +1,29 @@
-require 'options'
-require 'keymap'
+require("options")
+require("keymap")
 
-vim.cmd('packadd packer.nvim')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+   if vim.v.shell_error ~= 0 then
+      vim.api.nvim_echo({
+         { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+         { out,                            "WarningMsg" },
+         { "\nPress any key to exit..." },
+      }, true, {})
+      vim.fn.getchar()
+      os.exit(1)
+   end
+end
 
-require('packer').startup(function(use)
-   use 'wbthomason/packer.nvim'
+vim.opt.rtp:prepend(lazypath)
 
-   use {
-      "folke/tokyonight.nvim",
-      config = function ()
-         require'tokyonight'.setup({
-            style = 'night',
-            transparent = true,
-            terminal_colors = true,
-         })
-         vim.cmd.colorscheme("tokyonight")
-      end
-   }
-
-   use {
-      'vyfor/cord.nvim',
-      config = function ()
-         require'cord_cfg'
-      end
-   }
-
-   use {
-      'nvim-treesitter/nvim-treesitter',
-      requires = {'nvim-tree/nvim-web-devicons'},
-      run = ':TSUpdate',
-      config = function ()
-         require'treesitter_cfg'
-      end
-   }
-
-   use {
-      'nvim-telescope/telescope.nvim',
-      requires = {
-         {'nvim-lua/plenary.nvim'},
-         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-      },
-      config = function()
-         require'telescope_cfg'
-      end
-   }
-
-   use {
-      'neovim/nvim-lspconfig',
-      requires = {
-         'williamboman/nvim-lsp-installer',
-      },
-      config = function ()
-         require'lsp_cfg'
-         vim.diagnostic.config({
-            virtual_text = true,
-            signs = true
-         })
-         vim.opt.signcolumn = 'yes'
-      end
-   }
-
-   use {
-      "stevearc/conform.nvim",
-      config = function ()
-         require'conform_cfg'
-      end,
-   }
-
-   use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons' },
-      config = function ()
-         require'lualine_cfg'
-      end,
-   }
-
-   use {
-      'echasnovski/mini.nvim',
-      config = function ()
-         require'mini_cfg'
-      end
-   }
-end)
+require("lazy").setup({
+   spec = {
+      { import = "configs" },
+   },
+   checker = {
+      enabled = true,
+      notify = false,
+   },
+})
