@@ -5,14 +5,14 @@
       home.pointerCursor = {
          name = "Adwaita";
          package = pkgs.adwaita-icon-theme;
-         size = 22;
+         size = 20;
          x11 = {
            enable = true;
            defaultCursor = "Adwaita";
          };
       };
 
-      home.stateVersion = "24.05";
+      home.stateVersion = "25.05";
       home.username = "user";
       home.homeDirectory = "/home/user";
 
@@ -28,6 +28,5 @@
       home.file.".config/git".source = ./git;
       home.file.".config/fuzzel".source = ./fuzzel;
       home.file.".config/hypr".source = ./hypr;
-      home.file.".config/sway".source = ./sway;
    };
 }
