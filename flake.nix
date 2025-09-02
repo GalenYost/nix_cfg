@@ -1,8 +1,8 @@
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in {
+{
    inputs = {
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+      home-manager.url = "github:nix-community/home-manager";
+      home-manager.inputs.nixpkgs.follows = "nixpkgs";
    };
 
    outputs = { self, nixpkgs }: {
@@ -18,9 +18,9 @@ in {
             ./packages.nix
             ./network.nix
             ./home.nix
-            (import "${home-manager}/nixos")
+
+            home-manager.nixosModules.home-manager
          ];
       };
    };
 }
-
