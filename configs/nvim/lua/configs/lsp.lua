@@ -22,6 +22,7 @@ return {
          prismals = {},
          htmx = {},
          html = {},
+         csharp_ls = {},
          tailwindcss = {
             workspace_required = false,
          },
