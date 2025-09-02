@@ -18,8 +18,8 @@
       neovim firefox nodejs_24 cargo rustup
       kitty wl-clipboard mesa-demos egl-wayland
       git fuzzel libva-vdpau-driver libva
-      vulkan-tools usbutils
-      wget curl rnote
+      vulkan-tools usbutils chromium
+      wget curl rnote refind
       onefetch fastfetch grim slurp swappy
       telegram-desktop vesktop tmux malcontent
       jsonfmt gtk3 gtk4 xfce.thunar ripgrep

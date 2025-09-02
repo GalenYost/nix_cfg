@@ -5,7 +5,7 @@
       home.pointerCursor = {
          name = "Adwaita";
          package = pkgs.adwaita-icon-theme;
-         size = 24;
+         size = 22;
          x11 = {
            enable = true;
            defaultCursor = "Adwaita";
@@ -28,9 +28,6 @@
       home.file.".config/git".source = ./git;
       home.file.".config/fuzzel".source = ./fuzzel;
       home.file.".config/hypr".source = ./hypr;
-   };
-
-   wayland.windowManager.sway = {
-      enable = true;
+      home.file.".config/sway".source = ./sway;
    };
 }

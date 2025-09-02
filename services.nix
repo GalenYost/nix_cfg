@@ -19,6 +19,10 @@
       };
    };
 
+   services.xserver.displayManager.lightdm.enable = false;
+
+   services.xserver.enable = true;
+
    services.pipewire = {
       enable = true;
       pulse.enable = true;

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  networking.hostName = "nixos";
+  networking.hostName = "nix";
   # networking.wireless.enable = true;
   networking.networkmanager.enable = true;
 
