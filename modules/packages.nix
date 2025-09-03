@@ -4,6 +4,7 @@
    fonts.packages = with pkgs; [
       nerd-fonts.iosevka
       nerd-fonts.jetbrains-mono
+      nerd-fonts.dejavu-sans-mono
       inter roboto
    ];
 
@@ -35,6 +36,6 @@
       adwaita-icon-theme
       # socials
       telegram-desktop discord teams-for-linux
-      gfn-electron webcord
+      gfn-electron
    ];
 }
