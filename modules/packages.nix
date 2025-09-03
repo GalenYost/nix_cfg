@@ -16,7 +16,7 @@
 
    environment.systemPackages = with pkgs; [
       # development
-      neovim git tmux tree-sitter
+      neovim git tmux tree-sitter lua-language-server
       # tools
       wl-clipboard ripgrep wget curl rnote
       onefetch fastfetch home-manager
@@ -26,6 +26,7 @@
       kitty egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
       rnote fuzzel hyprpaper mupdf mpv
+      xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland polkit_gnome
       # browser
       firefox chromium
@@ -33,7 +34,7 @@
       gtk3 gtk4 gnome-themes-extra 
       adwaita-icon-theme
       # socials
-      telegram-desktop discord
-      gfn-electron
+      telegram-desktop discord teams-for-linux
+      gfn-electron webcord
    ];
 }
