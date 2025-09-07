@@ -17,14 +17,15 @@
 
    environment.systemPackages = with pkgs; [
       # development
-      neovim git tmux tree-sitter lua-language-server
+      git tmux tree-sitter lua-language-server
+      neovim
       # tools
       wl-clipboard ripgrep wget curl rnote
       onefetch fastfetch home-manager
       unzip p7zip nwg-look pwvucontrol
-      mesa glib libGL
+      mesa glib libGL meson ninja
       # desktop
-      kitty egl-wayland vulkan-tools libva libva-vdpau-driver
+      kitty foot egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
       rnote fuzzel hyprpaper mupdf mpv
       xdg-desktop-portal-gtk
@@ -36,6 +37,6 @@
       adwaita-icon-theme
       # socials
       telegram-desktop discord teams-for-linux
-      gfn-electron
+      gfn-electron youtube-music
    ];
 }

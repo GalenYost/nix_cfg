@@ -1,5 +1,5 @@
 [[ $- != *i* ]] && return
-PS1='\u@\h \W\$ '
+PS1='\u@\h \W \$ '
 
 # options
 set -o vi

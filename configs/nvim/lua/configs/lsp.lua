@@ -18,7 +18,9 @@ return {
 
       local servers = {
          clangd = {},
-         rust_analyzer = {},
+         rust_analyzer = {
+            cmd = { "rust-analyzer" },
+         },
          prismals = {},
          htmx = {},
          html = {},

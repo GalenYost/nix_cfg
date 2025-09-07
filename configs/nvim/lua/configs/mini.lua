@@ -34,7 +34,7 @@ return {
       pick.setup({
          window = {
             config = {
-               border = 'double', -- none | single | double | rounded | shadow
+               border = 'single', -- none | single | double | rounded | shadow
             },
             style = 'minimal',
          },
@@ -61,6 +61,6 @@ return {
          { noremap = true, silent = true, }
       )
 
-      vim.api.nvim_set_hl(0, "MiniPickNormal", { bg = nil })
+      -- vim.api.nvim_set_hl(0, "MiniPickNormal", { bg = nil })
    end,
 }

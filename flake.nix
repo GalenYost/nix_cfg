@@ -5,9 +5,13 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
    };
 
-   outputs = { self, nixpkgs, home-manager }: {
+   outputs = { self, nixpkgs, home-manager }:
+   let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+   in {
       nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
-         system = "x86_64-linux";
+         inherit system;
          modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
@@ -16,8 +20,10 @@
 
       homeConfigurations = {
          user = home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-            modules = [ ./home.nix ];
+            inherit pkgs;
+            modules = [
+               ./home.nix
+            ];
          };
       };
    };
