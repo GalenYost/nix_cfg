@@ -4,7 +4,7 @@
    home.pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
-      size = 18;
+      size = 16;
       x11 = {
         enable = true;
         defaultCursor = "Adwaita";
@@ -30,4 +30,5 @@
    home.file.".config/git".source = ./configs/git;
    home.file.".config/fuzzel".source = ./configs/fuzzel;
    home.file.".config/hypr".source = ./configs/hypr;
+   home.file.".config/sway".source = ./configs/sway;
 }

@@ -6,6 +6,13 @@
       withUWSM = true;
       xwayland.enable = true;
    };
+   programs.sway = {
+      enable = true;
+      wrapperFeatures = {
+         gtk = true;
+      };
+      xwayland.enable = true;
+   };
 
    programs.xfconf.enable = true;
 

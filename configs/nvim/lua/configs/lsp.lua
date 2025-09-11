@@ -113,6 +113,9 @@ return {
          lspconfig[name].setup(cfg)
       end
 
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
       vim.api.nvim_create_autocmd("BufWritePre", {
          pattern = { "*.rs", "*.html", "*.json", "*.lua" },
          callback = function(args)
