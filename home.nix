@@ -20,7 +20,7 @@
    home.file.".bash_profile".source = ./configs/.bash_profile;
    home.file.".tmux.conf".source = ./configs/.tmux.conf;
 
-   home.file.".local/share/applications" = ./configs/applications;
+   home.file.".local/share/applications".source = ./configs/applications;
 
    home.file.".config/nvim" = {
       source = ./configs/nvim;
