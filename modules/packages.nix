@@ -11,6 +11,7 @@
    environment.variables = lib.mkForce {
       GTK_THEME = "Adwaita-dark";
       QT_QPA_PLATFORM = "wayland";
+      GTK_USE_PORTAL = "1";
    };
 
    environment.systemPackages = with pkgs; [
@@ -28,7 +29,9 @@
       kitty egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
       fuzzel hyprpaper mupdf mpv rnote
-      xdg-desktop-portal-hyprland polkit_gnome
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      polkit_gnome
       # browser
       firefox chromium
       # cosmetics

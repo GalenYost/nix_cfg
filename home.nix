@@ -22,10 +22,8 @@
 
    home.file.".local/share/applications".source = ./configs/applications;
 
-   home.file.".config/nvim" = {
-      source = ./configs/nvim;
-      recursive = true;
-   };
+   home.file.".config/xdg-desktop-portal".source = ./configs/xdg-desktop-portal;
+   home.file.".config/nvim".source = ./configs/nvim;
    home.file.".config/kitty".source = ./configs/kitty;
    home.file.".config/gtk-3.0".source = ./configs/gtk-3.0;
    home.file.".config/gtk-4.0".source = ./configs/gtk-3.0;
