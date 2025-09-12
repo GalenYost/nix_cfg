@@ -20,6 +20,8 @@
    home.file.".bash_profile".source = ./configs/.bash_profile;
    home.file.".tmux.conf".source = ./configs/.tmux.conf;
 
+   home.file.".local/share/applications" = ./configs/applications;
+
    home.file.".config/nvim" = {
       source = ./configs/nvim;
       recursive = true;
@@ -30,5 +32,4 @@
    home.file.".config/git".source = ./configs/git;
    home.file.".config/fuzzel".source = ./configs/fuzzel;
    home.file.".config/hypr".source = ./configs/hypr;
-   home.file.".config/sway".source = ./configs/sway;
 }

@@ -18,15 +18,16 @@
       git tmux tree-sitter lua-language-server
       neovim cargo
       # tools
-      wl-clipboard ripgrep wget curl rnote
+      wl-clipboard-rs wl-clipboard-x11 ripgrep wget curl
       onefetch fastfetch home-manager
       unzip p7zip nwg-look pwvucontrol
       mesa glib libGL meson ninja htop
       webrtc-audio-processing rnnoise
+      desktop-file-utils
       # desktop
       kitty egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
-      rnote fuzzel hyprpaper mupdf mpv
+      fuzzel hyprpaper mupdf mpv rnote
       xdg-desktop-portal-hyprland polkit_gnome
       # browser
       firefox chromium
