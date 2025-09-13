@@ -2,10 +2,9 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 36,
-    "spacing": 4, // Gaps between modules (4px)
+    "height": 30,
+    "spacing": 3, // Gaps between modules (4px)
     "modules-left": [
-        "custom/arch",
         "hyprland/workspaces"
     ],
     "modules-center": [],
@@ -16,6 +15,7 @@
         "battery",
         "battery#bat2",
         "clock"
+        "tray"
     ],
     "include": [
 		"~/.config/waybar/modules.json"

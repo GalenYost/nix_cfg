@@ -117,23 +117,15 @@ return {
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
       vim.api.nvim_create_autocmd("BufWritePre", {
-         pattern = { "*.rs", "*.html", "*.json", "*.lua" },
+         pattern = {
+            "*.rs",
+            "*.html",
+            "*.json",
+            "*.lua",
+            "*.prisma",
+         },
          callback = function(args)
             vim.lsp.buf.format({ bufnr = args.buf, async = false })
-         end,
-      })
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-         group = prisma_fmt_grp,
-         pattern = "*.prisma",
-         callback = function(args)
-            vim.lsp.buf.format({
-               bufnr = args.buf,
-               async = false,
-               filter = function(client)
-                  return client.name == "prismals"
-               end,
-            })
          end,
       })
    end,

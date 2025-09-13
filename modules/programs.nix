@@ -7,6 +7,7 @@
       xwayland.enable = true;
    };
 
+   programs.waybar.enable = true;
    programs.xfconf.enable = true;
 
    systemd.services.flatpak-repo = {
