@@ -30,4 +30,8 @@
    home.file.".config/git".source = ./configs/git;
    home.file.".config/fuzzel".source = ./configs/fuzzel;
    home.file.".config/hypr".source = ./configs/hypr;
+   # home.file.".config/hyprpanel" = {
+   #    source = ./configs/hyprpanel;
+   #    recursive = true;
+   # };
 }

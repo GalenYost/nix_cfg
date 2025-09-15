@@ -24,14 +24,14 @@
       unzip p7zip nwg-look pwvucontrol
       mesa glib libGL meson ninja htop
       webrtc-audio-processing rnnoise
-      desktop-file-utils
+      desktop-file-utils obs-studio
       # desktop
       kitty egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
-      fuzzel hyprpaper mupdf mpv rnote
+      fuzzel mupdf mpv rnote
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
-      polkit_gnome
+      polkit_gnome hyprpaper
       # browser
       firefox chromium
       # cosmetics
