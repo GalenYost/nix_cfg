@@ -26,8 +26,6 @@
    hardware.nvidia = {
       modesetting.enable = true;
       open = true;
-      powerManagement.enable = true;
-      nvidiaSettings = true;
    };
 
    system.autoUpgrade.enable = true;
