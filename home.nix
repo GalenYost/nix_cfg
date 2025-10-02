@@ -15,7 +15,7 @@
    home.username = "user";
    home.homeDirectory = "/home/user";
 
-   # home.file.".bash_profile".source = ./configs/.bash_profile;
+   home.file.".bash_profile".source = ./configs/.bash_profile;
    home.file.".inputrc".source = ./configs/.inputrc;
    home.file.".bashrc".source = ./configs/.bashrc;
    home.file.".tmux.conf".source = ./configs/.tmux.conf;
@@ -33,14 +33,11 @@
    home.file.".config/gtk-3.0".source = ./configs/gtk-3.0;
    home.file.".config/gtk-4.0".source = ./configs/gtk-3.0;
    home.file.".config/git".source = ./configs/git;
-   home.file.".config/i3".source = ./configs/i3;
-   home.file.".config/rofi".source = ./configs/rofi;
 
-   # HYPRLAND #
-   # home.file.".config/hypr".source = ./configs/hypr;
-   # home.file.".config/fuzzel".source = ./configs/fuzzel;
-   # home.file.".config/hyprpanel" = {
-   #    source = ./configs/hyprpanel;
-   #    recursive = true;
-   # };
+   home.file.".config/hypr".source = ./configs/hypr;
+   home.file.".config/fuzzel".source = ./configs/fuzzel;
+   home.file.".config/hyprpanel" = {
+      source = ./configs/hyprpanel;
+      recursive = true;
+   };
 }

@@ -6,10 +6,10 @@
    services.gvfs.enable = true;
    services.flatpak.enable = true;
 
-   # services.getty = {
-   #    autologinUser = "user";
-   #    autologinOnce = true;
-   # };
+   services.getty = {
+      autologinUser = "user";
+      autologinOnce = true;
+   };
 
    services.openssh = {
       enable = true;
@@ -19,24 +19,7 @@
       };
    };
 
-   services.xserver.enable = true;
-   services.xserver.xkb = {
-      layout = "us,ua,ru";
-      options = "grp:alt_shift_toggle";
-   };
-
-   services.xserver.displayManager.lightdm = {
-      enable = true;
-      background = "/home/user/.local/share/backgrounds/wallpaper.jpg";
-      greeters.slick = {
-         enable = true;
-         extraConfig = ''
-            [Greeter]
-            background-blur=10
-         '';
-      };
-   };
-   services.xserver.windowManager.i3.enable = true;
+   services.xserver.displayManager.lightdm.enable = false;
 
    services.pipewire = {
       enable = true;

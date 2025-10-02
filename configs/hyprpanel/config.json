@@ -54,7 +54,7 @@
     ]
   ],
   "menus.dashboard.powermenu.avatar.image": "/home/user/.nix/configs/hypr/pfp.jpg",
-  "wallpaper.image": "/home/user/.nix/configs/hypr/wallpaper.jpg",
+  "wallpaper.image": "/home/user/.local/share/backgrounds/wallpaper.jpg",
   "bar.workspaces.show_numbered": true,
   "bar.workspaces.workspaceMask": false,
   "bar.workspaces.showWsIcons": false,
