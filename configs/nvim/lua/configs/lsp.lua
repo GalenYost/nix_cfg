@@ -11,29 +11,21 @@ return {
       'hrsh7th/vim-vsnip',
    },
    config = function()
-      local lspconfig = require('lspconfig')
       local cmp = require 'cmp'
-
-      local prisma_fmt_grp = vim.api.nvim_create_augroup("PrismaFormat", { clear = true })
 
       local servers = {
          clangd = {},
-         rust_analyzer = {
-            cmd = { "rust-analyzer" },
-         },
+         rust_analyzer = {},
          prismals = {},
          htmx = {},
          html = {},
+         asm_lsp = {},
          csharp_ls = {},
          tailwindcss = {
             workspace_required = false,
          },
          ts_ls = {
-            root_dir = function(fname)
-               local deno = lspconfig.util.root_pattern("deno.json", "deno.json")(fname)
-               if deno then return nil end
-               return lspconfig.util.root_pattern("package.json")(fname)
-            end,
+            root_markers = { 'package.json' },
          },
          denols = {},
          svelte = {},
@@ -51,7 +43,7 @@ return {
       cmp.setup({
          snippet = {
             expand = function(args)
-               vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+               vim.fn["vsnip#anonymous"](args.body)
             end,
          },
          window = {
@@ -107,10 +99,10 @@ return {
       })
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
       for name, cfg in pairs(servers) do
          cfg.capabilities = capabilities
-         lspconfig[name].setup(cfg)
+         vim.lsp.config(name, cfg)
+         vim.lsp.enable(name)
       end
 
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

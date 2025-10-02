@@ -16,6 +16,9 @@ vim.o.wildignorecase = true
 
 vim.o.termguicolors = true
 
+vim.o.title = true
+vim.o.titlestring = "neovim"
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
