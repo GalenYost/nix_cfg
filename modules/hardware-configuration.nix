@@ -7,6 +7,7 @@
 
    boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
    boot.initrd.kernelModules = [ "dm-snapshot" "dm-mod" ];
+   boot.kernelParams = [ "nvidia_drm.modeset=1" ];
    boot.kernelModules = [ "kvm-amd" ];
    boot.extraModulePackages = [ ];
 
@@ -25,7 +26,8 @@
 
    hardware.nvidia = {
       modesetting.enable = true;
-      open = true;
+      powerManagement.enable = true;
+      open = false;
    };
 
    system.autoUpgrade.enable = true;

@@ -5,10 +5,14 @@
    services.devmon.enable = true;
    services.gvfs.enable = true;
    services.flatpak.enable = true;
+   services.dbus.enable = true;
 
-   services.getty = {
-      autologinUser = "user";
-      autologinOnce = true;
+   services.greetd = {
+      enable = true;
+      settings.default_session = {
+         command = "Hyprland";
+         user = "user";
+      };
    };
 
    services.openssh = {
@@ -18,8 +22,6 @@
          PasswordAuthentication = false;
       };
    };
-
-   services.xserver.displayManager.lightdm.enable = false;
 
    services.pipewire = {
       enable = true;
@@ -48,6 +50,18 @@
             };
          };
       };
+   };
+
+   systemd.user.services.hyprland_resume = {
+      enable = true;
+      description = "hyprland reset display";
+      after = [ "suspend.target" ];
+      serviceConfig = {
+         Type = "oneshot";
+         ExecStart = "/run/current-system/sw/bin/hyprctl dispatch dpms off";
+         ExecStartPost = "/run/current-system/sw/bin/sh -c '/run/current-system/sw/bin/sleep 1; /run/current-system/sw/bin/hyprctl dispatch dpms on'";
+      };
+      wantedBy = [ "suspend.target" ];
    };
 
    xdg.portal = {

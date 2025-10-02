@@ -4,7 +4,6 @@
    home.pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
-      size = 16;
       x11 = {
         enable = true;
         defaultCursor = "Adwaita";
@@ -15,7 +14,6 @@
    home.username = "user";
    home.homeDirectory = "/home/user";
 
-   home.file.".bash_profile".source = ./configs/.bash_profile;
    home.file.".inputrc".source = ./configs/.inputrc;
    home.file.".bashrc".source = ./configs/.bashrc;
    home.file.".tmux.conf".source = ./configs/.tmux.conf;
