@@ -1,7 +1,6 @@
 {
-   "theme.font.name": "Liberation Mono",
-   "theme.font.label": "JetBrainsMono Nerd Font",
-   "theme.font.size": "1.15rem",
+   "theme.font.size": "0.82rem",
+   "theme.font.weight": "600",
    "scalingPriority": "gdk",
    "bar.layouts": {
       "0": {
@@ -14,6 +13,7 @@
             "clock"
          ],
          "right": [
+            "kbinput",
             "volume",
             "network",
             "bluetooth",
@@ -33,7 +33,7 @@
    "theme.bar.buttons.radius": "1em",
    "theme.bar.margin_top": "0em",
    "theme.bar.margin_sides": "0em",
-   "bar.launcher.icon": "",
+   "bar.launcher.icon": "󱄅",
    "theme.bar.menus.monochrome": true,
    "theme.bar.menus.background": "#0d0c0c",
    "bar.windowtitle.title_map": [
@@ -51,11 +51,6 @@
          "gjs",
          "",
          "Hyprpanel"
-      ],
-      [
-         "neovim",
-         "",
-         "Neovim"
       ]
    ],
    "menus.dashboard.powermenu.avatar.image": "/home/user/.nix/configs/hypr/pfp.jpg",
@@ -100,6 +95,10 @@
    "theme.bar.buttons.clock.background": "#0d0c0c",
    "theme.bar.buttons.clock.text": "#62a0ea",
    "theme.bar.buttons.clock.icon": "#62a0ea",
+   "theme.bar.buttons.modules.kbLayout.background": "#0d0c0c",
+   "theme.bar.buttons.modules.kbLayout.icon_background": "#0d0c0c",
+   "theme.bar.buttons.modules.kbLayout.text": "#62a0ea",
+   "theme.bar.buttons.modules.kbLayout.icon": "#62a0ea",
    "theme.bar.buttons.notifications.background": "#0d0c0c",
    "theme.bar.buttons.notifications.total": "#62a0ea",
    "theme.bar.buttons.notifications.icon": "#b4befe",

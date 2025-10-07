@@ -27,8 +27,12 @@
    hardware.nvidia = {
       modesetting.enable = true;
       powerManagement.enable = true;
-      open = false;
+      gsp.enable = true;
+      videoAcceleration = true;
+      open = true;
    };
+   hardware.graphics.enable = true;
+   hardware.display.outputs."HDMI-A-1".mode = "1920x1080@144";
 
    system.autoUpgrade.enable = true;
    system.autoUpgrade.allowReboot = false;
@@ -45,9 +49,10 @@
 
    swapDevices = [ ];
 
+   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
    networking.useDHCP = lib.mkDefault true;
    # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
 
-   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
    hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

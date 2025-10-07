@@ -4,10 +4,6 @@
    home.pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
-      x11 = {
-        enable = true;
-        defaultCursor = "Adwaita";
-      };
    };
 
    home.stateVersion = "25.05";
@@ -24,7 +20,6 @@
       source = ./configs/wallpaper.jpg;
    };
 
-   home.file.".config/fontconfig".source = ./configs/fontconfig;
    home.file.".config/xdg-desktop-portal".source = ./configs/xdg-desktop-portal;
    home.file.".config/nvim".source = ./configs/nvim;
    home.file.".config/kitty".source = ./configs/kitty;
@@ -33,9 +28,6 @@
    home.file.".config/git".source = ./configs/git;
 
    home.file.".config/hypr".source = ./configs/hypr;
+   home.file.".config/hyprpanel".source = ./configs/hyprpanel;
    home.file.".config/fuzzel".source = ./configs/fuzzel;
-   home.file.".config/hyprpanel" = {
-      source = ./configs/hyprpanel;
-      recursive = true;
-   };
 }

@@ -5,6 +5,18 @@
       nerd-fonts.iosevka
       nerd-fonts.jetbrains-mono
       nerd-fonts.dejavu-sans-mono
+      nerd-fonts.meslo-lg
+
+      (stdenvNoCC.mkDerivation {
+         pname = "SF Pro";
+         version = "1.0";
+         src = ../fonts/SFPro;
+         dontBuild = true;
+         installPhase = ''
+            mkdir -p $out/share/fonts/truetype
+            cp -v *.ttf $out/share/fonts/truetype/
+         '';
+      })
    ];
 
    environment.variables = lib.mkForce {
@@ -20,24 +32,25 @@
       # tools
       wl-clipboard-rs ripgrep wget curl
       onefetch fastfetch home-manager
-      unzip p7zip pwvucontrol
-      mesa glib libGL meson ninja htop
+      unzip p7zip pwvucontrol htop nvtopPackages.nvidia
+      mesa glib libGL meson ninja
       webrtc-audio-processing rnnoise
       desktop-file-utils obs-studio openssl
       # desktop
       kitty egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
-      fuzzel mupdf mpv rnote hyprpanel
+      fuzzel mupdf mpv rnote
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gnome
       polkit_gnome hyprpicker
+      hyprpaper hyprpanel
       # browser
       firefox chromium
       # cosmetics
       gtk3 gtk4 gnome-themes-extra 
       adwaita-icon-theme glib
       gsettings-desktop-schemas
-      hyprpaper
       # socials
       telegram-desktop discord teams-for-linux
       gfn-electron youtube-music

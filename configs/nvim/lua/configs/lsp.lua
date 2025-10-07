@@ -115,9 +115,17 @@ return {
             "*.json",
             "*.lua",
             "*.prisma",
+            "*.c", "*.cpp", "*.h", "*.hpp"
          },
          callback = function(args)
             vim.lsp.buf.format({ bufnr = args.buf, async = false })
+         end,
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+         pattern = "rust",
+         callback = function()
+            require('lspconfig')['tailwindcss'].manager.try_add()
          end,
       })
    end,
