@@ -31,6 +31,7 @@ return {
          svelte = {},
          jsonls = {},
          sqlls = {},
+         nushell = {},
          lua_ls = {
             settings = {
                Lua = {

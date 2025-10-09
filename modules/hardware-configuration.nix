@@ -30,6 +30,7 @@
       gsp.enable = true;
       videoAcceleration = true;
       open = true;
+      package = config.boot.kernelPackages.nvidia_x11;
    };
    hardware.graphics.enable = true;
    hardware.display.outputs."HDMI-A-1".mode = "1920x1080@144";

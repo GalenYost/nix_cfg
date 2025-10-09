@@ -1,5 +1,5 @@
 {
-   "theme.font.size": "0.82rem",
+   "theme.font.size": "1rem",
    "theme.font.weight": "600",
    "scalingPriority": "gdk",
    "bar.layouts": {
@@ -15,11 +15,8 @@
          "right": [
             "kbinput",
             "volume",
-            "network",
-            "bluetooth",
             "battery",
-            "systray",
-            "notifications"
+            "systray"
          ]
       }
    },
@@ -106,5 +103,6 @@
    "theme.bar.buttons.windowtitle.text": "#62a0ea",
    "theme.bar.buttons.windowtitle.icon": "#62a0ea",
    "theme.bar.border.width": "0em",
-   "bar.workspaces.applicationIconOncePerWorkspace": false
+   "bar.workspaces.applicationIconOncePerWorkspace": false,
+   "wallpaper.enable": false
 }

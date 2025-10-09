@@ -28,7 +28,7 @@
       # development
       git tmux tree-sitter lua-language-server
       neovim cargo vscode-langservers-extracted
-      binaryninja-free postman vim asm-lsp
+      binaryninja-free postman vim asm-lsp nushell
       # tools
       wl-clipboard-rs ripgrep wget curl
       onefetch fastfetch home-manager
@@ -37,7 +37,7 @@
       webrtc-audio-processing rnnoise
       desktop-file-utils obs-studio openssl
       # desktop
-      kitty egl-wayland vulkan-tools libva libva-vdpau-driver
+      kitty foot egl-wayland vulkan-tools libva libva-vdpau-driver
       grim slurp swappy xfce.thunar mesa-demos
       fuzzel mupdf mpv rnote
       xdg-desktop-portal-gtk
@@ -54,5 +54,7 @@
       # socials
       telegram-desktop discord teams-for-linux
       gfn-electron youtube-music
+      # drivers
+      linuxKernel.packages.linux_zen.nvidia_x11
    ];
 }
