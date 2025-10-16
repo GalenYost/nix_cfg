@@ -2,7 +2,7 @@ $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.PROMPT_COMMAND_RIGHT = {||}
 
-alias l = ls -l -a
+alias vim = nvim
 
 # functions
 def nixos-switch [] {
@@ -11,4 +11,8 @@ def nixos-switch [] {
 
 def home-switch [] {
    home-manager switch --flake .#user
+}
+
+def bat [] {
+   upower -i /org/freedesktop/UPower/devices/battery_BAT0 | find -n percentage state | print --raw
 }

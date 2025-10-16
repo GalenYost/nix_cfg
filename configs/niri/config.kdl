@@ -40,7 +40,7 @@ layout {
         proportion 0.66667
     }
 
-    default-column-width { proportion 1.0; }
+    default-column-width { proportion 0.5; }
 
     focus-ring {
         off
@@ -101,11 +101,19 @@ window-rule {
 }
 
 window-rule {
+   match app-id="org.vinegarhq.Sober"
+   open-maximized true
+}
+
+window-rule {
    match app-id="^thunar$"
+   match app-id="^blueman-manager$"
    open-floating true
 
    min-width 930
+   max-width 930
    min-height 730
+   max-height 730
 }
 
 binds {
