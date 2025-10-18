@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+   programs.niri.enable = true;
+
    xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
