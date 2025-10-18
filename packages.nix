@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs }:
 
 {
    fonts.packages = with pkgs; [
@@ -19,32 +19,25 @@
       })
    ];
 
-   environment.variables = lib.mkForce {
-      GTK_THEME = "Adwaita-dark";
-      XDG_DATA_DIRS = "/run/current-system/sw/share";
-   };
-
    environment.systemPackages = with pkgs; [
       # development
       git tmux tree-sitter lua-language-server
       neovim cargo vscode-langservers-extracted
       binaryninja-free postman vim asm-lsp nushell
+      nixd
       # tools
       wl-clipboard-rs ripgrep wget curl
       onefetch fastfetch home-manager
       unzip p7zip pwvucontrol htop nvtopPackages.nvidia
       mesa glib libGL meson ninja
       webrtc-audio-processing rnnoise
-      desktop-file-utils obs-studio openssl
+      desktop-file-utils openssl
       # desktop
-      kitty foot egl-wayland vulkan-tools libva libva-vdpau-driver
-      grim slurp swappy xfce.thunar mesa-demos
+      foot egl-wayland vulkan-tools libva libva-vdpau-driver
+      xfce.thunar mesa-demos
       fuzzel mupdf mpv rnote
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gnome
       polkit_gnome hyprpicker
-      hyprpaper hyprpanel
+      grim slurp swappy
       # browser
       firefox chromium
       # cosmetics
@@ -52,9 +45,8 @@
       adwaita-icon-theme glib
       gsettings-desktop-schemas
       # socials
-      telegram-desktop discord teams-for-linux
-      gfn-electron youtube-music
-      # drivers
-      linuxKernel.packages.linux_zen.nvidia_x11
+      telegram-desktop discord
+      teams-for-linux
+      youtube-music
    ];
 }

@@ -19,6 +19,8 @@ vim.o.termguicolors = true
 vim.o.title = true
 vim.o.titlestring = "neovim"
 
+vim.o.shell = '/run/current-system/sw/bin/nu'
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 

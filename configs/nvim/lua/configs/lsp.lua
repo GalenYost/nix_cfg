@@ -32,6 +32,7 @@ return {
          jsonls = {},
          sqlls = {},
          nushell = {},
+         nixd = {},
          lua_ls = {
             settings = {
                Lua = {
@@ -126,7 +127,12 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
          pattern = "rust",
          callback = function()
-            require('lspconfig')['tailwindcss'].manager.try_add()
+            local config = require("lspconfig.configs").tailwindcss
+            if not config then
+               vim.notify("TailwindCSS LSP config not found", vim.log.levels.WARN)
+               return
+            end
+            vim.lsp.start(config.make_config())
          end,
       })
    end,

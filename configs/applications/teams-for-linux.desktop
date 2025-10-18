@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Teams
+Name=MS Teams
 Exec=teams-for-linux --ozone-platform=wayland --enable-features=WaylandWindowDecorations
 Icon=teams-for-linux
 Type=Application
