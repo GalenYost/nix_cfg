@@ -15,10 +15,6 @@
          source = ./configs/nushell;
          recursive = true;
       };
-      ".config/hyprpanel" = {
-         source = ./configs/hyprpanel;
-         recursive = true;
-      };
 
       ".tmux.conf".source = ./configs/.tmux.conf;
 
@@ -28,7 +24,7 @@
       ".config/gtk-3.0".source = ./configs/gtk-3.0;
       ".config/gtk-4.0".source = ./configs/gtk-3.0;
       ".config/git".source = ./configs/git;
-      ".config/hypr".source = ./configs/hypr;
+      ".config/niri".source = ./configs/niri;
       ".config/fuzzel".source = ./configs/fuzzel;
 
       ".local/share/applications".source = ./configs/applications;

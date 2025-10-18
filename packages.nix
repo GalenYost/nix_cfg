@@ -1,4 +1,4 @@
-{ pkgs }:
+{ config, pkgs, lib, ... }:
 
 {
    fonts.packages = with pkgs; [
@@ -10,7 +10,7 @@
       (stdenvNoCC.mkDerivation {
          pname = "SF Pro";
          version = "1.0";
-         src = ../fonts/SFPro;
+         src = ./fonts/SFPro;
          dontBuild = true;
          installPhase = ''
             mkdir -p $out/share/fonts/truetype

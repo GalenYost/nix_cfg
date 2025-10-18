@@ -1,3 +1,5 @@
+{ config, pkgs, lib, ... }:
+
 {
    imports = [
       ./hardware.nix
@@ -9,8 +11,6 @@
       ./security.nix
 
       ./flatpak.nix
-      ./gtk.nix
-
       ./niri.nix
       ./obs.nix
       ./pipewire.nix
