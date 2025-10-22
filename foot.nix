@@ -1,0 +1,48 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+{
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        shell = "/run/current-system/sw/bin/nu";
+        font = "MesloLGS Nerd Font:size=19.0";
+        box-drawings-uses-font-glyphs = "yes";
+        dpi-aware = "yes";
+      };
+      bell = {
+        system = "no";
+      };
+      mouse = {
+        hide-when-typing = "yes";
+      };
+      cursor = {
+        unfocused-style = "unchanged";
+      };
+      colors = {
+        background = "080808";
+        regular0 = "020202";
+        regular1 = "BA0605";
+        regular2 = "18B902";
+        regular3 = "BBB902";
+        regular4 = "0E69BA";
+        regular5 = "B91DBE";
+        regular6 = "0EBABA";
+        regular7 = "C9C9C9";
+        bright0 = "6C6C6C";
+        bright1 = "DC1F1E";
+        bright2 = "21E602";
+        bright3 = "E7E602";
+        bright4 = "1983E7";
+        bright5 = "E626E7";
+        bright6 = "14E7E7";
+        bright7 = "E7E7E7";
+      };
+    };
+  };
+}

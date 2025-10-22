@@ -18,16 +18,12 @@
 
       ".tmux.conf".source = ./configs/.tmux.conf;
 
-      ".config/xdg-desktop-portal".source = ./configs/xdg-desktop-portal;
       ".config/nvim".source = ./configs/nvim;
-      ".config/foot".source = ./configs/foot;
       ".config/gtk-3.0".source = ./configs/gtk-3.0;
       ".config/gtk-4.0".source = ./configs/gtk-3.0;
-      ".config/git".source = ./configs/git;
       ".config/niri".source = ./configs/niri;
       ".config/fuzzel".source = ./configs/fuzzel;
 
-      ".local/share/applications".source = ./configs/applications;
       "wallpaper.jpg" = {
          target = ".local/share/backgrounds/wallpaper.jpg";
          source = ./configs/wallpaper.jpg;

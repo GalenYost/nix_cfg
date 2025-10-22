@@ -14,7 +14,7 @@ return {
       local cmp = require 'cmp'
 
       local servers = {
-         clangd = {},
+         ccls = {},
          rust_analyzer = {},
          prismals = {},
          htmx = {},
@@ -32,7 +32,11 @@ return {
          jsonls = {},
          sqlls = {},
          nushell = {},
-         nixd = {},
+         nixd = {
+            formatting = {
+               command = { "nixfmt-rfc-style" }
+            }
+         },
          lua_ls = {
             settings = {
                Lua = {
@@ -117,22 +121,11 @@ return {
             "*.json",
             "*.lua",
             "*.prisma",
-            "*.c", "*.cpp", "*.h", "*.hpp"
+            "*.c", "*.cpp", "*.h", ".hpp",
+            "*.nix",
          },
          callback = function(args)
             vim.lsp.buf.format({ bufnr = args.buf, async = false })
-         end,
-      })
-
-      vim.api.nvim_create_autocmd("FileType", {
-         pattern = "rust",
-         callback = function()
-            local config = require("lspconfig.configs").tailwindcss
-            if not config then
-               vim.notify("TailwindCSS LSP config not found", vim.log.levels.WARN)
-               return
-            end
-            vim.lsp.start(config.make_config())
          end,
       })
    end,

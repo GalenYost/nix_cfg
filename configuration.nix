@@ -1,26 +1,36 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-   imports = [
-      ./hardware.nix
-      ./programs.nix
-      ./network.nix
-      ./users.nix
-      ./services.nix
-      ./packages.nix
-      ./security.nix
+  imports = [
+    ./hardware.nix
+    ./programs.nix
+    ./network.nix
+    ./users.nix
+    ./services.nix
+    ./packages.nix
+    ./security.nix
 
-      ./flatpak.nix
-      ./niri.nix
-      ./obs.nix
-      ./pipewire.nix
-   ];
+    ./flatpak.nix
+    ./niri.nix
+    ./pipewire.nix
 
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-   nix.settings.auto-optimise-store = true;
+    ./foot.nix
+    ./git.nix
+  ];
 
-   nixpkgs.config.allowUnfree = true;
-   nixpkgs.config.multiLib = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nix.settings.auto-optimise-store = true;
 
-   system.stateVersion = "25.05";
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.multiLib = true;
+
+  system.stateVersion = "25.05";
 }

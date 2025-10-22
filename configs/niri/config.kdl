@@ -4,24 +4,15 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "xdg-desktop-portal-wlr"
 spawn-at-startup "xdg-desktop-portal-gtk"
 spawn-at-startup "xdg-desktop-portal-gnome"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww img ~/.local/share/backgrounds/wallpaper.jpg"
 
-input {
-    keyboard {
-        xkb {
-            layout "us,ua,ru"
-            options "grp:alt_shift_toggle,ctrl:nocaps"
-        }
-    }
+cursor {
+   hide-when-typing
+}
 
-    touchpad {
-        tap
-        natural-scroll
-        accel-profile "flat"
-        scroll-method "two-finger"
-    }
-
-    mouse {}
-    trackpoint {}
+hotkey-overlay {
+    skip-at-startup
 }
 
 output "eDP-1" {
@@ -83,44 +74,41 @@ layout {
     }
 }
 
-hotkey-overlay {
-    skip-at-startup
+input {
+    keyboard {
+        xkb {
+            layout "us,ua,ru"
+            options "grp:alt_shift_toggle,ctrl:nocaps"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        accel-profile "flat"
+        scroll-method "two-finger"
+    }
+
+    mouse {}
+    trackpoint {}
 }
 
 window-rule {
-   match app-id=r#"^*$"#
-   exclude app-id=r#"^org\.telegram\.desktop$"# title="^Media viewer$" 
-
-   clip-to-geometry true
-   geometry-corner-radius 4
-}
-
-window-rule {
-   match app-id=r#"^org\.telegram\.desktop$"# title="^Media viewer$"
-
+   match app-id=r#"^org\.telegram\.desktop$"# title="Media viewer"
+   open-floating true
    open-fullscreen false
-   open-floating true
-}
-
-window-rule {
-   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-   open-floating true
-}
-
-window-rule {
-   match app-id="org.vinegarhq.Sober"
-   open-maximized true
 }
 
 window-rule {
    match app-id="^thunar$"
    match app-id="^blueman-manager$"
-   open-floating true
+   match app-id="^xdg-desktop-portal-gtk$"
 
-   min-width 930
-   max-width 930
-   min-height 730
-   max-height 730
+   open-floating true
+   open-fullscreen false
+
+   default-column-width { fixed 930; }
+   default-window-height { fixed 730; }
 }
 
 binds {

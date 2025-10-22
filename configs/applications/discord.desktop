@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Discord
-Exec=discord --ozone-platform=wayland --enable-features=WaylandWindowDecorations
-Type=Application
-Categories=Network;Chat;
-Icon=discord

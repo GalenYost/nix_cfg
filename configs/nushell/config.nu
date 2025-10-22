@@ -2,8 +2,6 @@ $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.PROMPT_COMMAND_RIGHT = {||}
 
-alias vim = nvim
-
 # functions
 def nixos-switch [] {
    sudo nixos-rebuild switch --flake .#nix
@@ -11,6 +9,14 @@ def nixos-switch [] {
 
 def home-switch [] {
    home-manager switch --flake .#user
+}
+
+def download [urls: list<string>, path: string, format: string = "mp3"] {
+   let path_str = ($path | into string)
+   mkdir $path_str
+   for url in $urls {
+        yt-dlp -x --audio-format $format --output "$path_str/%(title)s.%(ext)s" --external-downloader aria2c $url
+   }
 }
 
 def bat [] {
