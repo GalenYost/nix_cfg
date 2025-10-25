@@ -19,10 +19,14 @@ vim.o.termguicolors = true
 vim.o.title = true
 vim.o.titlestring = "neovim"
 
-vim.o.shell = '/run/current-system/sw/bin/nu'
+vim.o.shell = '/usr/bin/nu'
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+vim.o.laststatus = 0
+vim.o.showmode = false
+vim.o.ruler = false
 
 vim.diagnostic.config({
    virtual_text = true,

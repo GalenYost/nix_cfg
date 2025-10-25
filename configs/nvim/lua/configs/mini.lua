@@ -6,8 +6,13 @@ local flags = {
 }
 
 local function files()
-   local cmd = "rg " .. table.concat(flags, " ")
-   return vim.split(vim.fn.system(cmd), "\n")
+   local cmd = { "rg", unpack(flags) }
+   local result = vim.fn.systemlist(cmd)
+   if vim.v.shell_error ~= 0 then
+      vim.notify("Ripgrep failed when listing files", vim.log.levels.ERROR)
+      return {}
+   end
+   return result
 end
 
 return {

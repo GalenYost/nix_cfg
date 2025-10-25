@@ -2,6 +2,8 @@ $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.PROMPT_COMMAND_RIGHT = {||}
 
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/.nvm/versions/node/v25.0.0/bin")
+
 # functions
 def nixos-switch [] {
    sudo nixos-rebuild switch --flake .#nix
@@ -9,6 +11,11 @@ def nixos-switch [] {
 
 def home-switch [] {
    home-manager switch --flake .#user
+}
+
+def nvm [...args] {
+    let joined = ($args | str join ' ')
+    bash -c $"source ~/.nvm/nvm.sh; nvm ($joined)"
 }
 
 def download [urls: list<string>, path: string, format: string = "mp3"] {

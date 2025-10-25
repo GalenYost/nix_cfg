@@ -32,11 +32,7 @@ return {
          jsonls = {},
          sqlls = {},
          nushell = {},
-         nixd = {
-            formatting = {
-               command = { "nixfmt-rfc-style" }
-            }
-         },
+         qmlls = {},
          lua_ls = {
             settings = {
                Lua = {
