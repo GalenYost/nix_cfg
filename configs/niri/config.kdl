@@ -89,8 +89,6 @@ layout {
 }
 
 input {
-   focus-follows-mouse
-
     keyboard {
         xkb {
             layout "us,ua,ru"
@@ -210,8 +208,7 @@ binds {
     Mod+F       { toggle-window-floating; }
     Mod+Shift+W { toggle-column-tabbed-display; }
 
-    // Mod+Z { screenshot show-pointer=false; }
-    Mod+Z repeat=false { spawn "flameshot" "gui"; }
+    Mod+Z { screenshot show-pointer=false; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
