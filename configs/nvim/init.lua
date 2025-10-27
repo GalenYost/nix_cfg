@@ -22,7 +22,6 @@ vim.g.maplocalleader = ' '
 vim.pack.add({
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter',       version = 'main' },
     { src = 'https://github.com/nvim-mini/mini.nvim' },
-    { src = 'https://github.com/folke/snacks.nvim' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/vague-theme/vague.nvim' },
     { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
@@ -44,61 +43,77 @@ require 'mini.comment'.setup {
         comment_visual = "<leader>c",
     },
 }
+require 'mini.pick'.setup()
 
--- snacks
-require 'snacks'.setup {
-    bigfile = { enabled = true },
-    quickfile = { enabled = true },
-}
-local opts = {
-    hidden = { 'preview' },
-    layout = {
-        preset = 'dropdown',
-    },
-}
-
-vim.keymap.set("n", "<leader>f", function()
-    require 'snacks'.picker.files(opts)
+vim.keymap.set('n', '<leader>f', function()
+    require 'mini.pick'.builtin.cli({
+        command = {
+            'rg', '--hidden', '--files',
+            '--glob', '!node_modules/*',
+            '--glob', '!target/*',
+            '--glob', '!.git/*'
+        }
+    })
 end)
-vim.keymap.set("n", "<leader>g", function()
-    require 'snacks'.picker.grep(opts)
-end)
+vim.keymap.set('n', '<leader>g', require 'mini.pick'.builtin.grep_live)
 
 -- tree-sitter
 require 'nvim-treesitter'.setup {
     ensure_installed = {
         'c', 'cpp', 'lua',
-        'c_sharp',
+        'c_sharp', 'nu',
         'json', 'rust',
         'html', 'css', 'markdown',
     },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
+}
+
+local parsers = require("nvim-treesitter.parsers")
+parsers.fasm = {
+    install_info = {
+        url = "https://github.com/amaanq/tree-sitter-fasm",
+        revision = "master",
+        queries = "queries",
     },
 }
 
+vim.treesitter.language.register("fasm", { "asm" })
+
 -- lsp
 local servers = {
-    rust_analyzer = {},
-    zls = {},
-    ccls = {},
-    csharp_ls = {},
-    asm_lsp = {},
-    nushell = {},
-    sqlls = {},
-    jsonls = {},
+    rust_analyzer = {
+        cmd = { "rust-analyzer" },
+        filetypes = { "rs" },
+    },
+    zls = {
+        filetypes = { "zig" },
+    },
+    ccls = {
+        filetypes = { "c", "cpp", "h" }
+    },
+    csharp_ls = {
+        filetypes = { "cs" }
+    },
+    nushell = {
+        filetypes = { "nu" }
+    },
+    sqlls = {
+        filetypes = { "sql" }
+    },
+    jsonls = {
+        filetypes = { "json" }
+    },
     lua_ls = {
         cmd = { "lua-language-server" },
+        filetypes = { "lua" },
         settings = {
             Lua = {
                 diagnostics = { globals = { "vim" } },
             },
         },
     },
-    html = {},
+    html = {
+        filetypes = { "html" },
+    },
 }
 
 for name, cfg in pairs(servers) do
@@ -114,9 +129,7 @@ vim.keymap.set("n", "rn", vim.lsp.buf.rename)
 
 -- formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = {
-        "*.lua",
-    },
+    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.sql", "*.zig", "*.cs" },
     callback = function(args)
         vim.lsp.buf.format({ bufnr = args.buf, async = false })
     end,
