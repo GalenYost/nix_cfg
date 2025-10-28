@@ -3,6 +3,7 @@ $env.config.show_banner = false
 $env.PROMPT_COMMAND_RIGHT = {||}
 
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.nvm/versions/node/v25.0.0/bin")
+$env.PATH = ($env.PATH | prepend "/home/user/.dotnet/tools")
 
 # functions
 def nixos-switch [] {
@@ -19,10 +20,9 @@ def nvm [...args] {
 }
 
 def download [urls: list<string>, path: string, format: string = "mp3"] {
-   let path_str = ($path | into string)
-   mkdir $path_str
+   mkdir $path
    for url in $urls {
-        yt-dlp -x --audio-format $format --output "$path_str/%(title)s.%(ext)s" --external-downloader aria2c $url
+        yt-dlp -x --audio-format $format --output $"($path)/%(title)s.%(ext)s" --external-downloader aria2c $url
    }
 }
 
