@@ -79,47 +79,23 @@ parsers.fasm = {
 vim.treesitter.language.register("fasm", { "asm" })
 
 -- lsp
-local servers = {
-    rust_analyzer = {
-        cmd = { "rust-analyzer" },
-        filetypes = { "rs" },
-    },
-    zls = {
-        filetypes = { "zig" },
-    },
-    ccls = {
-        filetypes = { "c", "cpp", "h" }
-    },
-    csharp_ls = {
-        filetypes = { "cs" }
-    },
-    nushell = {
-        filetypes = { "nu" }
-    },
-    sqlls = {
-        filetypes = { "sql" }
-    },
-    jsonls = {
-        filetypes = { "json" }
-    },
-    lua_ls = {
-        cmd = { "lua-language-server" },
-        filetypes = { "lua" },
-        settings = {
-            Lua = {
-                diagnostics = { globals = { "vim" } },
-            },
-        },
-    },
-    html = {
-        filetypes = { "html" },
-    },
-}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-for name, cfg in pairs(servers) do
-    vim.lsp.config(name, cfg)
-    vim.lsp.enable(name)
-end
+vim.lsp.config("clangd", { capabilities = capabilities })
+vim.lsp.enable("clangd")
+
+vim.lsp.config("rust-analyzer", { capabilities = capabilities })
+vim.lsp.enable("rust-analyzer", capabilities)
+
+vim.lsp.config("lua-ls", { capabilities = capabilities })
+vim.lsp.enable("lua-ls")
+
+vim.lsp.config("csharp-ls", { capabilities = capabilities })
+vim.lsp.enable("csharp-ls")
+
+vim.lsp.config("jsonls", { capabilities = capabilities })
+vim.lsp.enable("jsonls")
 
 require "tiny-inline-diagnostic".setup()
 
@@ -129,7 +105,7 @@ vim.keymap.set("n", "rn", vim.lsp.buf.rename)
 
 -- formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.sql", "*.zig", "*.cs" },
+    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs" },
     callback = function(args)
         vim.lsp.buf.format({ bufnr = args.buf, async = false })
     end,
