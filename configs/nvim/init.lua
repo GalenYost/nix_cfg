@@ -117,6 +117,7 @@ require 'blink.cmp'.setup {
         preset = "none",
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<C-a>'] = { 'accept' },
     },
     completion = {
         documentation = {
