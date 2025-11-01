@@ -207,6 +207,6 @@ binds {
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Mod+Shift+E { spawn-sh "swaylock"; }
+    Mod+Shift+E { spawn-sh "systemctl suspend"; }
     Mod+Shift+Q { quit; }
 }
