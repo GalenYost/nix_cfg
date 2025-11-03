@@ -1,9 +1,9 @@
 -- options
 vim.opt.clipboard = "unnamedplus"
-vim.opt.signcolumn = "no"
 
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.signcolumn = "no"
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4

@@ -29,3 +29,7 @@ def download [urls: list<string>, path: string, format: string = "mp3"] {
 def bat [] {
    upower -i /org/freedesktop/UPower/devices/battery_BAT0 | find -n percentage state | print --raw
 }
+
+def l [] {
+  ls -l -a | select name type mode size user
+}

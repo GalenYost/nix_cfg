@@ -3,19 +3,25 @@ show_hidden = true
 
 [opener]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv "$@"', orphan = true, for = "unix", desc = "Play" },
 ]
 edit = [
-    { run = 'nvim "$@"', block = true, for = "unix" }
+    { run = 'nvim "$@"', block = true, for = "unix", desc = "Edit" }
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
+    { run = 'xdg-open "$@"', desc = "Open" }
 ]
 docx = [
-    { run = 'only-office-desktopeditors --view="$@"', desc = "Open docx" },
+    { run = 'onlyoffice-desktopeditors --view="$@"', desc = "Open docx" },
 ]
 
 [open]
 rules = [
+    { mime = "audio/*", use = "play" },
+    { mime = "video/*", use = "play" },
+    { mime = "x-scheme-handler/*", use = "open" },
+    { mime = "application/pdf", use = "open" },
+    { mime = "text/*", use = "open" },
+
     { name = "*.docx", use = "docx" },
 ]
