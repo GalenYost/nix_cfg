@@ -11,3 +11,11 @@ edit = [
 open = [
 	{ run = 'xdg-open "$@"', desc = "Open" },
 ]
+docx = [
+    { run = 'only-office-desktopeditors --view="$@"', desc = "Open docx" },
+]
+
+[open]
+rules = [
+    { name = "*.docx", use = "docx" },
+]
