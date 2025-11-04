@@ -1,9 +1,13 @@
 font-family = "Iosevka Nerd Font"
 font-size = 23
+font-feature = -calt, -liga, -dlig
 
 working-directory = "/home/user/"
+command = "nu"
 
 mouse-hide-while-typing = true
+mouse-scroll-multiplier = 1
+
 confirm-close-surface = false
 window-padding-balance = true
 window-inherit-working-directory = false
@@ -29,5 +33,3 @@ palette = 12=#1983E7
 palette = 13=#E626E7
 palette = 14=#14E7E7
 palette = 15=#E7E7E7
-
-command = "nu"

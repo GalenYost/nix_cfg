@@ -2,3 +2,4 @@ target/
 plugin/
 
 history.txt
+nvim-pack-lock.json

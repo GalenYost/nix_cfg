@@ -24,14 +24,25 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.nvim' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/vague-theme/vague.nvim' },
+    { src = 'https://github.com/Shatur/neovim-ayu' },
+    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' },
     { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
 })
 
--- colorscheme
+-- colorschemes
 require 'vague'.setup {
     italic = false,
 }
-vim.cmd.colorscheme 'vague'
+require 'gruber-darker'.setup {
+    italic = {
+        strings = false,
+        comments = false,
+        operators = false,
+        folds = false,
+    },
+}
+require 'ayu'.setup {}
+vim.cmd.colorscheme 'ayu'
 
 -- mini
 require 'mini.misc'.setup_termbg_sync()

@@ -20,10 +20,10 @@ def nvm [...args] {
 }
 
 def download [urls: list<string>, path: string, format: string = "mp3"] {
-   mkdir $path
-   for url in $urls {
-        yt-dlp -x --audio-format $format --output $"($path)/%(title)s.%(ext)s" --external-downloader aria2c $url
-   }
+    mkdir $path
+    for url in $urls {
+        yt-dlp -x --audio-format $format --output ($path + "/%(title)s.%(ext)s") --external-downloader aria2c $url
+    }
 }
 
 def bat [] {
