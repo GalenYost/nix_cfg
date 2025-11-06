@@ -41,8 +41,7 @@ require 'gruber-darker'.setup {
         folds = false,
     },
 }
-require 'ayu'.setup {}
-vim.cmd.colorscheme 'ayu'
+vim.cmd.colorscheme 'gruber-darker'
 
 -- mini
 require 'mini.misc'.setup_termbg_sync()
