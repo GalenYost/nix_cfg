@@ -2,8 +2,12 @@ $env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.PROMPT_COMMAND_RIGHT = {||}
 
+$env.ZVM_INSTALL = $"($env.HOME)/.zvm/self"
+
 $env.PATH = ($env.PATH | prepend $"($env.HOME)/.nvm/versions/node/v25.0.0/bin")
 $env.PATH = ($env.PATH | prepend "/home/user/.dotnet/tools")
+$env.PATH = ($env.PATH | prepend $"($env.HOME)/.zvm/bin")
+$env.PATH = ($env.PATH | prepend $env.ZVM_INSTALL)
 
 # functions
 def nixos-switch [] {
