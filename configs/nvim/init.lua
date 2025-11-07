@@ -20,12 +20,34 @@ vim.g.maplocalleader = ' '
 
 -- plugins
 vim.pack.add({
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter',       version = 'main' },
-    { src = 'https://github.com/nvim-mini/mini.nvim' },
-    { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/vague-theme/vague.nvim' },
+    { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter',         version = 'main' },
+    { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
+
+    { src = 'https://github.com/nvim-mini/mini.nvim' },
+    { src = 'https://github.com/stevearc/oil.nvim' },
+
+    { src = 'https://github.com/nvim-telescope/telescope.nvim' },
+    { src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' },
+    { src = 'https://github.com/nvim-lua/plenary.nvim' },
 })
+
+-- oil
+require "oil".setup {
+    default_file_explorer = true,
+    columns = {
+        "icon",
+        "permissions",
+        "size",
+        "mtime",
+    },
+    view_options = {
+        show_hidden = true,
+    },
+}
 
 -- colorschemes
 require 'vague'.setup {
@@ -36,33 +58,62 @@ vim.cmd.colorscheme 'vague'
 -- mini
 require 'mini.misc'.setup_termbg_sync()
 require 'mini.misc'.setup_restore_cursor()
-require 'mini.icons'.setup()
 require 'mini.comment'.setup {
     mappings = {
         comment_line = "<leader>c",
         comment_visual = "<leader>c",
     },
 }
-require 'mini.pick'.setup()
 
-vim.keymap.set('n', '<leader>f', function()
-    require 'mini.pick'.builtin.cli({
-        command = {
-            'rg', '--hidden', '--files',
-            '--glob', '!node_modules/*',
-            '--glob', '!target/*',
-            '--glob', '!.git/*'
-        }
-    })
-end)
-vim.keymap.set('n', '<leader>g', require 'mini.pick'.builtin.grep_live)
+-- telescope
+local telescope = require('telescope')
+
+telescope.setup {
+    defaults = {
+        vimgrep_arguments = {
+            'rg', '--color=never', '--no-heading',
+            '--with-filename', '--line-number', '--column', '--smart-case'
+        },
+        file_ignore_patterns = {
+            "node_modules", ".git/", "target/", "dist/", "build/"
+        },
+        preview = {
+            filesize_limit = 1,
+        },
+        mappings = {
+            i = {
+                ["<C-u>"] = false,
+                ["<C-d>"] = false,
+            },
+        },
+    },
+    pickers = {
+        find_files = {
+            find_command = { 'fd', '--type', 'f', '--hidden', '--exclude', '.git' },
+            previewer = true,
+        },
+        buffers = {
+            previewer = false,
+        },
+    },
+    extensions = {
+        fzf = {
+            fuzzy = false,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        },
+    },
+}
+
+telescope.load_extension('fzf')
 
 -- tree-sitter
 require 'nvim-treesitter'.setup {
     ensure_installed = {
         'c', 'cpp', 'lua',
         'c_sharp', 'nu',
-        'json', 'rust',
+        'json', 'rust', 'zig',
         'html', 'css', 'markdown',
     },
 }
@@ -100,19 +151,7 @@ vim.lsp.enable("jsonls")
 vim.lsp.config("zls", { capabilities = capabilities })
 vim.lsp.enable("zls")
 
-require "tiny-inline-diagnostic".setup()
-
--- keymap
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "rn", vim.lsp.buf.rename)
-
--- formatting
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs", "*.zig" },
-    callback = function(args)
-        vim.lsp.buf.format({ bufnr = args.buf, async = false })
-    end,
-})
+require "tiny-inline-diagnostic".setup {}
 
 -- blink
 require 'blink.cmp'.setup {
@@ -128,9 +167,60 @@ require 'blink.cmp'.setup {
         }
     },
     sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' }
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     fuzzy = {
         implementation = "lua"
     }
 }
+
+-- no autocomment on new line
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("no_autocomment", {}),
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+    end
+})
+
+-- dotenv highlight
+vim.api.nvim_create_autocmd("BufRead", {
+    group = vim.api.nvim_create_augroup("dotenv_hl", {}),
+    pattern = { ".env", ".env.*" },
+    callback = function()
+        vim.bo.filetype = "dosini"
+    end
+})
+
+-- formatting
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs", "*.zig" },
+    callback = function(args)
+        vim.lsp.buf.format({ bufnr = args.buf, async = false })
+    end,
+})
+
+-- remove search highlight on insert/cmdline enter
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+    callback = vim.schedule_wrap(function()
+        vim.cmd.nohlsearch()
+    end),
+})
+
+-- keymaps
+
+-- bind nohlsearch to ESC
+vim.keymap.set("n", "<ESC>", vim.cmd.nohlsearch)
+
+-- oil open parent dir
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- mini grep picker
+vim.keymap.set('n', '<leader>g', require 'mini.pick'.builtin.grep_live)
+
+-- lsp interactions
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "rn", vim.lsp.buf.rename)
+
+-- telescope
+vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = "Find files" })
+vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, { desc = "Live grep" })
