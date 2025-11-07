@@ -24,8 +24,6 @@ vim.pack.add({
     { src = 'https://github.com/nvim-mini/mini.nvim' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/vague-theme/vague.nvim' },
-    { src = 'https://github.com/Shatur/neovim-ayu' },
-    { src = 'https://github.com/blazkowolf/gruber-darker.nvim' },
     { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
 })
 
@@ -33,15 +31,7 @@ vim.pack.add({
 require 'vague'.setup {
     italic = false,
 }
-require 'gruber-darker'.setup {
-    italic = {
-        strings = false,
-        comments = false,
-        operators = false,
-        folds = false,
-    },
-}
-vim.cmd.colorscheme 'gruber-darker'
+vim.cmd.colorscheme 'vague'
 
 -- mini
 require 'mini.misc'.setup_termbg_sync()
@@ -107,6 +97,9 @@ vim.lsp.enable("csharp-ls")
 vim.lsp.config("jsonls", { capabilities = capabilities })
 vim.lsp.enable("jsonls")
 
+vim.lsp.config("zls", { capabilities = capabilities })
+vim.lsp.enable("zls")
+
 require "tiny-inline-diagnostic".setup()
 
 -- keymap
@@ -115,7 +108,7 @@ vim.keymap.set("n", "rn", vim.lsp.buf.rename)
 
 -- formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs" },
+    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs", "*.zig" },
     callback = function(args)
         vim.lsp.buf.format({ bufnr = args.buf, async = false })
     end,
