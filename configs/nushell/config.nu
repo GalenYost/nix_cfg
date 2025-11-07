@@ -10,14 +10,6 @@ $env.PATH = ($env.PATH | prepend $"($env.HOME)/.zvm/bin")
 $env.PATH = ($env.PATH | prepend $env.ZVM_INSTALL)
 
 # functions
-def nixos-switch [] {
-   sudo nixos-rebuild switch --flake .#nix
-}
-
-def home-switch [] {
-   home-manager switch --flake .#user
-}
-
 def nvm [...args] {
     let joined = ($args | str join ' ')
     bash -c $"source ~/.nvm/nvm.sh; nvm ($joined)"
@@ -32,8 +24,4 @@ def download [urls: list<string>, path: string, format: string = "mp3"] {
 
 def bat [] {
    upower -i /org/freedesktop/UPower/devices/battery_BAT0 | find -n percentage state | print --raw
-}
-
-def l [] {
-  ls -l -a | select name type mode size user
 }
