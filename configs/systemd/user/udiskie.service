@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount removable drives with udiskie
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie -A -n -t
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
