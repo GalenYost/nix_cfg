@@ -122,10 +122,10 @@ window-rule {
 
 window-rule {
    match app-id=r#"^org\.telegram\.desktop$"# title="^Media viewer$"
+   match app-id=r#"^flameshot$"#
 
    open-fullscreen false
    open-floating true
-   tiled-state false
 }
 
 window-rule {
@@ -212,7 +212,8 @@ binds {
 
     F11 { fullscreen-window; }
 
-    Mod+Z { screenshot show-pointer=false; }
+    // Mod+Z { screenshot show-pointer=false; }
+    Mod+Z { spawn "flameshot" "gui"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
