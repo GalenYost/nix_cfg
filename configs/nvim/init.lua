@@ -20,6 +20,7 @@ vim.g.maplocalleader = ' '
 
 -- plugins
 vim.pack.add({
+    { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
     { src = 'https://github.com/vague-theme/vague.nvim' },
 
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter',       version = 'main' },
