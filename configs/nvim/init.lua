@@ -7,6 +7,9 @@ vim.o.signcolumn = "no"
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+vim.o.cursorline = true
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 8
 
 vim.o.smartcase = true
 vim.o.ignorecase = true
