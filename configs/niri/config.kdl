@@ -5,7 +5,7 @@ spawn-at-startup "xdg-desktop-portal-gtk"
 spawn-at-startup "xdg-desktop-portal-gnome"
 
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "~/wallpapers/wallpaper.jpg"
+spawn-at-startup "swww" "img" "~/wallpaper.jpg"
 
 environment {
    XDG_CURRENT_DESKTOP "niri"
@@ -122,7 +122,7 @@ window-rule {
 
 window-rule {
    match app-id=r#"^org\.telegram\.desktop$"# title="^Media viewer$"
-   match app-id=r#"^flameshot$"#
+   match title="^flameshot$"
 
    open-fullscreen false
    open-floating true

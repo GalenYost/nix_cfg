@@ -22,12 +22,12 @@
       ".config/gtk-4.0".source = ./configs/gtk-3.0;
       ".config/niri".source = ./configs/niri;
       ".config/rofi".source = ./configs/rofi;
-      ".config/yazi".source = ./configs/yazi;
+      # ".config/yazi".source = ./configs/yazi;
       ".config/ghostty".source = ./configs/ghostty;
       ".config/flameshot".source = ./configs/flameshot;
 
       "wallpaper.jpg" = {
-         target = ".local/share/backgrounds/wallpaper.jpg";
+         target = "/home/user/wallpaper.jpg";
          source = ./configs/wallpaper.jpg;
       };
    };

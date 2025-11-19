@@ -31,6 +31,7 @@
     binaryninja-free
     postman
     nushell
+    ghostty
     # lsp servers
     nixd
     nixfmt-rfc-style
@@ -62,6 +63,8 @@
     libva-vdpau-driver
     vulkan-tools
     mesa-demos
+    fzf
+    imagemagick
     # desktop
     egl-wayland
     rofi

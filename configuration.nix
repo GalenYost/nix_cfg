@@ -18,6 +18,7 @@
     ./flatpak.nix
     ./niri.nix
     ./pipewire.nix
+    ./yazi.nix
 
     ./git.nix
   ];

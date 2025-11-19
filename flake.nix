@@ -19,6 +19,9 @@
          modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
+            {
+              nixpkgs.overlays = overlays;
+            }
          ];
       };
 
@@ -26,9 +29,6 @@
          user = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
-                {
-              nixpkgs.overlays = overlays;
-            }
                ./home.nix
             ];
          };

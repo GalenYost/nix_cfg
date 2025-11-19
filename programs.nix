@@ -10,7 +10,6 @@
   programs.xfconf.enable = true;
 
   programs.firefox.enable = true;
-  programs.foot.enable = true;
   programs.thunar.enable = true;
 
   programs.obs-studio = {
