@@ -79,6 +79,7 @@
     yt-dlp
     yazi
     termusic
+    onlyoffice-desktopeditors
     # cosmetics
     gtk3
     gtk4
