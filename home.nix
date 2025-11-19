@@ -14,7 +14,10 @@
       ".bashrc".source = ./configs/.bashrc;
       ".tmux.conf".source = ./configs/.tmux.conf;
 
-      ".config/nvim".source = ./configs/nvim;
+      ".config/nvim" = {
+         source = ./configs/nvim;
+         recursive = true;
+      };
       ".config/gtk-3.0".source = ./configs/gtk-3.0;
       ".config/gtk-4.0".source = ./configs/gtk-3.0;
       ".config/niri".source = ./configs/niri;
