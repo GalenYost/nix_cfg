@@ -47,6 +47,11 @@
       fsType = "vfat";
       options = [ "noatime" ];
    };
+   fileSystems."/mnt/USB_FLASH" = {
+      device = "/dev/disk/by-uuid/4E21-0000";
+      fsType = "exfat";
+      options = [ "users" "nofail" ];
+   };
 
    swapDevices = [ ];
 
