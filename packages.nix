@@ -30,14 +30,15 @@
     cargo
     binaryninja-free
     postman
-    nushell
     ghostty
+    gcc libcxx
+    clang clang-tools libclang
+    gnumake stdenv.cc
     # lsp servers
     nixd
     nixfmt-rfc-style
     vscode-langservers-extracted
     lua-language-server
-    asm-lsp
     # tools
     xwayland-satellite
     wl-clipboard-rs

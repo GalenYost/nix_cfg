@@ -99,20 +99,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config("clangd", { capabilities = capabilities })
 vim.lsp.enable("clangd")
 
-vim.lsp.config("rust-analyzer", { capabilities = capabilities })
-vim.lsp.enable("rust-analyzer", capabilities)
-
 vim.lsp.config("lua-ls", { capabilities = capabilities })
 vim.lsp.enable("lua-ls")
 
-vim.lsp.config("csharp-ls", { capabilities = capabilities })
-vim.lsp.enable("csharp-ls")
-
-vim.lsp.config("jsonls", { capabilities = capabilities })
-vim.lsp.enable("jsonls")
-
 vim.lsp.config("zls", { capabilities = capabilities })
 vim.lsp.enable("zls")
+
+vim.lsp.config("nixd", { capabilities = capabilities })
+vim.lsp.enable("nixd")
 
 require "tiny-inline-diagnostic".setup {}
 
