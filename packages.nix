@@ -64,7 +64,8 @@
     mesa-demos
     # desktop
     egl-wayland
-    fuzzel
+    rofi
+    flameshot
     mupdf
     mpv
     rnote
@@ -76,6 +77,8 @@
     ungoogled-chromium
     aria2
     yt-dlp
+    yazi
+    termusic
     # cosmetics
     gtk3
     gtk4
@@ -86,6 +89,5 @@
     telegram-desktop
     discord
     teams-for-linux
-    youtube-music
   ];
 }

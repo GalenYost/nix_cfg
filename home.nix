@@ -11,18 +11,17 @@
    home.homeDirectory = "/home/user";
 
    home.file = {
-      ".config/nushell" = {
-         source = ./configs/nushell;
-         recursive = true;
-      };
-
+      ".bashrc".source = ./configs/.bashrc;
       ".tmux.conf".source = ./configs/.tmux.conf;
 
       ".config/nvim".source = ./configs/nvim;
       ".config/gtk-3.0".source = ./configs/gtk-3.0;
       ".config/gtk-4.0".source = ./configs/gtk-3.0;
       ".config/niri".source = ./configs/niri;
-      ".config/fuzzel".source = ./configs/fuzzel;
+      ".config/rofi".source = ./configs/rofi;
+      ".config/yazi".source = ./configs/yazi;
+      ".config/ghostty".source = ./configs/ghostty;
+      ".config/flameshot".source = ./configs/flameshot;
 
       "wallpaper.jpg" = {
          target = ".local/share/backgrounds/wallpaper.jpg";

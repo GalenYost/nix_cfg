@@ -19,7 +19,6 @@
     ./niri.nix
     ./pipewire.nix
 
-    ./foot.nix
     ./git.nix
   ];
 
