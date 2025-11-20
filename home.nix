@@ -5,6 +5,8 @@
     ./yazi.nix
    ];
 
+    services.udiskie.enable = true;
+
    home.pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;

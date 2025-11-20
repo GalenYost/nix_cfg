@@ -13,3 +13,21 @@ export NVM_DIR="$HOME/.nvm"
 export ZVM_INSTALL="$HOME/.zvm/self"
 export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
+
+download_songs() {
+    local list_file="$1"
+
+    if [[ ! -f "$list_file" ]]; then
+        echo "File not found: $list_file" >&2
+        return 1
+    fi
+
+    while IFS= read -r url; do
+        [[ -z "$url" || "$url" =~ ^# ]] && continue
+
+        yt-dlp \
+            -f bestaudio \
+            -o "%(title)s.%(ext)s" \
+            "$url"
+    done < "$list_file"
+}
