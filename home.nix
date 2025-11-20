@@ -1,6 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
+   imports = [
+    ./yazi.nix
+   ];
+
    home.pointerCursor = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;

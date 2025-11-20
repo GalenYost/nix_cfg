@@ -8,9 +8,6 @@
 {
     programs.yazi = {
         enable = true;
-        plugins = {
-            inherit (pkgs.yaziPlugins) mount;
-        };
         settings.yazi = {
             mgr.show_hidden = true;
             opener = {
@@ -32,19 +29,11 @@
                     { mime = "audio/*"; use = "play"; }
                     { mime = "video/*"; use = "play"; }
                     { mime = "x-scheme-handler/*"; use = "open"; }
-                    { mime = "application/pdf"; use = "open"; }
                     { mime = "text/*"; use = "open"; }
+                    { mime = "application/pdf"; use = "open"; }
                     { name = "*.{docx,pptx,xlsx,xlsm}"; use = "office"; }
                 ];
             };
-        };
-        settings.keymap = {
-            mgr.prepend_keymap = [
-            {
-                on = "M";
-                run = "plugin mount";
-            }
-            ];
         };
     };
 }

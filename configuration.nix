@@ -15,12 +15,11 @@
     ./packages.nix
     ./security.nix
 
-    ./flatpak.nix
-    ./niri.nix
-    ./pipewire.nix
-    ./yazi.nix
-
     ./git.nix
+    ./niri.nix
+    ./xdg.nix
+    ./flatpak.nix
+    ./pipewire.nix
   ];
 
   nix.settings.experimental-features = [

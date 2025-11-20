@@ -8,32 +8,8 @@
 {
   programs.niri.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
-      xdg-desktop-portal-wlr
-    ];
-    config = {
-      common = {
-        default = [ "gtk" ];
-      };
-      niri = {
-        default = [
-          "gtk"
-          "gnome"
-        ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
-      };
-    };
-  };
-
   qt = {
     enable = true;
-    style = "adwaita-dark";
   };
 
   environment.sessionVariables = {
