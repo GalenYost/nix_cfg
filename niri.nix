@@ -10,6 +10,7 @@
 
   qt = {
     enable = true;
+    style = "adwaita-dark";
   };
 
   environment.sessionVariables = {
