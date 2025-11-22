@@ -20,6 +20,9 @@
                 open = [
                     { run = "xdg-open $@"; desc = "Open"; }
                 ];
+                pdf = [
+                    { run = "firefox $@"; desc = "Open pdf in firefox"; }
+                ];
                 office = [
                     { run = "onlyoffice-desktopeditors --view=$@"; desc = "Open office"; }
                 ];
@@ -30,7 +33,7 @@
                     { mime = "video/*"; use = "play"; }
                     { mime = "x-scheme-handler/*"; use = "open"; }
                     { mime = "text/*"; use = "open"; }
-                    { mime = "application/pdf"; use = "open"; }
+                    { mime = "application/pdf"; use = "pdf"; }
                     { name = "*.{docx,pptx,xlsx,xlsm}"; use = "office"; }
                 ];
             };

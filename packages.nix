@@ -90,6 +90,8 @@
     gnome-themes-extra
     adwaita-icon-theme
     gsettings-desktop-schemas
+    picom xorg.xrandr xclip xsel
+    dunst
     # socials
     telegram-desktop
     discord

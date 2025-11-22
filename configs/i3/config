@@ -14,11 +14,11 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id nm-applet
 
 # window rules
-focus_on_window_activation smart
+# focus_on_window_activation smart
 workspace_layout tabbed
 
-for_window [class="flameshot"] floating enable, sticky enable, border none, focus
-for_window [class="TelegramDesktop" title="Media viewer"] floating enable, border none, focus
+for_window [class="flameshot"] border none, floating enable, fullscreen disable, move absolute position 0 0
+for_window [class="Telegram" title="Media viewer"] border none, floating enable, fullscreen disable, move absolute position 0 0
 
 floating_modifier $mod
 tiling_drag modifier titlebar
@@ -44,7 +44,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+f exec $files
 bindsym $mod+m exec $music
-bindsym $mod+z exec $screenshot
+bindsym $mod+z exec --no-startup-id $screenshot
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down

@@ -16,7 +16,7 @@
     enable = true;
     package = pkgs.obs-studio;
     plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
+      input-overlay
       obs-pipewire-audio-capture
       obs-vkcapture
     ];

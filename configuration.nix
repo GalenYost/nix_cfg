@@ -16,7 +16,8 @@
     ./security.nix
 
     ./git.nix
-    ./niri.nix
+    # ./niri.nix
+    ./i3.nix
     ./xdg.nix
     ./flatpak.nix
     ./pipewire.nix
