@@ -23,15 +23,11 @@ vim.g.maplocalleader = ' '
 
 -- plugins
 vim.pack.add({
-    { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
-
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter',       version = 'main' },
     { src = 'https://github.com/saghen/blink.cmp' },
     { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
-
     { src = 'https://github.com/nvim-mini/mini.nvim' },
-    { src = 'https://github.com/stevearc/oil.nvim' },
-
+    { src = 'https://github.com/A7Lavinraj/fyler.nvim' },
     { src = 'https://github.com/folke/tokyonight.nvim' },
 })
 
@@ -46,23 +42,27 @@ require 'tokyonight'.setup({
 })
 vim.cmd.colorscheme('tokyonight')
 
--- oil
-require "oil".setup {
-    default_file_explorer = true,
-    columns = {
-        "icon",
-        "permissions",
-        "size",
-        "mtime",
+require 'fyler'.setup({
+    integrations = {
+        icon = "mini_icons",
     },
-    view_options = {
-        show_hidden = true,
-    },
-}
+    views = {
+        finder = {
+            default_explorer = true,
+            delete_to_trash = true,
+            win = {
+                buf_opts = {
+                    shiftwidth = 3,
+                },
+            },
+        },
+    }
+})
 
 -- mini
 require 'mini.misc'.setup_termbg_sync()
 require 'mini.misc'.setup_restore_cursor()
+require 'mini.icons'.setup()
 require 'mini.comment'.setup {
     mappings = {
         comment_line = "<leader>c",
@@ -168,8 +168,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 -- bind nohlsearch to ESC
 vim.keymap.set("n", "<ESC>", vim.cmd.nohlsearch)
 
--- oil open parent dir
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- fyler open parent dir
+vim.keymap.set("n", "-", require 'fyler'.open, { desc = "Open fyler View" })
 
 -- mini pickers
 vim.keymap.set('n', '<leader>f', require 'mini.pick'.builtin.files, { desc = "Find files" })
