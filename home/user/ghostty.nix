@@ -3,14 +3,12 @@
     pkgs,
     lib,
     ...
-}:
-
-{
+}: {
     programs.ghostty = {
         enable = true;
         settings = {
             font-family = "Iosevka Nerd Font";
-            font-size = 23;
+            font-size = 21;
             font-feature = "-calt, -liga, -dlig";
             working-directory = "/home/user/";
             mouse-hide-while-typing = true;
