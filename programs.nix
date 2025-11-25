@@ -8,6 +8,7 @@
 {
   programs.steam.enable = true;
   programs.xfconf.enable = true;
+  programs.dconf.enable = true;
 
   programs.firefox.enable = true;
   programs.thunar.enable = true;
@@ -21,12 +22,4 @@
       obs-vkcapture
     ];
   };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    defaultEditor = true;
-  };
-  programs.tmux.enable = true;
 }

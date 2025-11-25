@@ -9,10 +9,7 @@
     services.xserver = {
         enable = true;
         autorun = true;
-        windowManager.i3 = {
-            enable = true;
-            updateSessionEnvironment = true;
-        };
+        windowManager.i3.enable = true;
         xkb = {
             options = "grp:alt_shift_toggle";
             layout = "us,ua,ru";

@@ -26,28 +26,22 @@
 
   environment.systemPackages = with pkgs; [
     # development
-    tree-sitter
     cargo
     binaryninja-free
-    postman
     ghostty
     gcc libcxx
     clang clang-tools libclang
     gnumake stdenv.cc
-    # lsp servers
-    nixd
-    nixfmt-rfc-style
-    vscode-langservers-extracted
-    lua-language-server
+    zvm
     # tools
     xwayland-satellite
+    home-manager
     wl-clipboard-rs
     ripgrep
     wget
     curl
     onefetch
     fastfetch
-    home-manager
     unzip
     p7zip
     pwvucontrol
@@ -67,17 +61,13 @@
     fzf
     imagemagick
     # desktop
-    egl-wayland
+    protonvpn-gui
     rofi
-    flameshot
     mupdf
     mpv
     rnote
     polkit_gnome
     swww
-    grim
-    slurp
-    swappy
     ungoogled-chromium
     aria2
     yt-dlp
@@ -85,13 +75,10 @@
     termusic
     onlyoffice-desktopeditors
     # cosmetics
-    gtk3
-    gtk4
     gnome-themes-extra
     adwaita-icon-theme
     gsettings-desktop-schemas
     picom xorg.xrandr xclip xsel
-    dunst
     # socials
     telegram-desktop
     discord

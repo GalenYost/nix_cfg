@@ -21,16 +21,6 @@ vim.o.termguicolors = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- plugins
-vim.pack.add({
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter',       version = 'main' },
-    { src = 'https://github.com/saghen/blink.cmp' },
-    { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
-    { src = 'https://github.com/nvim-mini/mini.nvim' },
-    { src = 'https://github.com/A7Lavinraj/fyler.nvim' },
-    { src = 'https://github.com/folke/tokyonight.nvim' },
-})
-
 -- tokyonight
 require 'tokyonight'.setup({
     style = 'night',
@@ -99,14 +89,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config("clangd", { capabilities = capabilities })
 vim.lsp.enable("clangd")
 
-vim.lsp.config("lua-ls", { capabilities = capabilities })
-vim.lsp.enable("lua-ls")
+vim.lsp.config("lua_ls", { capabilities = capabilities })
+vim.lsp.enable("lua_ls")
 
 vim.lsp.config("zls", { capabilities = capabilities })
 vim.lsp.enable("zls")
 
-vim.lsp.config("nixd", { capabilities = capabilities })
-vim.lsp.enable("nixd")
+vim.lsp.config("nil_ls", { capabilities = capabilities })
+vim.lsp.enable("nil_ls")
 
 require "tiny-inline-diagnostic".setup {}
 

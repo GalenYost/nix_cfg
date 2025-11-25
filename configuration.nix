@@ -15,9 +15,10 @@
     ./packages.nix
     ./security.nix
 
+    ./xserver.nix
+
     ./git.nix
-    # ./niri.nix
-    ./i3.nix
+    ./bash.nix
     ./xdg.nix
     ./flatpak.nix
     ./pipewire.nix
