@@ -3,9 +3,7 @@
     pkgs,
     lib,
     ...
-}:
-
-{
+}: {
     programs.neovim = {
         enable = true;
         package = pkgs.neovim;
@@ -21,8 +19,10 @@
             tokyonight-nvim
         ];
         extraPackages = with pkgs; [
-            stylua
+            # fmt
             alejandra
+
+            # lsp
             lua-language-server
             vscode-langservers-extracted
             zls
@@ -30,9 +30,4 @@
         ];
         extraLuaConfig = builtins.readFile ./nvim_init.lua;
     };
-
-    # xdg.configFile."nvim/init.lua" = {
-    # 	enable = true;
-    #     source = ./configs/nvim/init.lua;
-    # };
 }

@@ -86,16 +86,48 @@ vim.treesitter.language.register("fasm", { "asm" })
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-vim.lsp.config("clangd", { capabilities = capabilities })
+vim.lsp.config("clangd", {
+    capabilities = capabilities,
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "h", "hpp" },
+    root_markers = { ".clang-format" },
+})
 vim.lsp.enable("clangd")
 
-vim.lsp.config("lua_ls", { capabilities = capabilities })
+vim.lsp.config("lua_ls", {
+    capabilities = capabilities,
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    root_markers = { "*.lua" },
+    settings = {
+        Lua = {
+            diagnostics = { globals = { "vim" } },
+        },
+    },
+})
 vim.lsp.enable("lua_ls")
 
-vim.lsp.config("zls", { capabilities = capabilities })
+vim.lsp.config("zls", {
+    capabilities = capabilities,
+    cmd = { "zls" },
+    filetypes = { "zig", "zir" },
+    root_markers = { "*.zig" },
+})
 vim.lsp.enable("zls")
 
-vim.lsp.config("nil_ls", { capabilities = capabilities })
+vim.lsp.config("nil_ls", {
+    capabilities = capabilities,
+    cmd = { "nil" },
+    filetypes = { "nix" },
+    root_markers = { "flake.nix", ".git" },
+    settings = {
+        ["nil"] = {
+            formatting = {
+                command = { "alejandra" },
+            },
+        },
+    },
+})
 vim.lsp.enable("nil_ls")
 
 require "tiny-inline-diagnostic".setup {}
@@ -140,7 +172,7 @@ vim.api.nvim_create_autocmd("BufRead", {
 
 -- formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs", "*.zig" },
+    pattern = { "*.rs", "*.json", "*.lua", "*.c", "*.cpp", "*.h", "*.cs", "*.zig", "*.nix" },
     callback = function(args)
         vim.lsp.buf.format({ bufnr = args.buf, async = false })
     end,

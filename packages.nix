@@ -62,7 +62,6 @@
     imagemagick
     # desktop
     protonvpn-gui
-    rofi
     mupdf
     mpv
     rnote
@@ -71,7 +70,6 @@
     ungoogled-chromium
     aria2
     yt-dlp
-    yazi
     termusic
     onlyoffice-desktopeditors
     # cosmetics

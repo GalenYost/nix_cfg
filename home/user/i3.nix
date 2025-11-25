@@ -110,6 +110,7 @@
         "${modifier}+w" = "layout tabbed";
         "${modifier}+e" = "layout toggle split";
 
+        "f11" = "fullscreen toggle global";
         "${modifier}+Shift+f" = "floating toggle";
 
         "${modifier}+1" = "workspace number 1";

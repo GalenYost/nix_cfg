@@ -8,8 +8,13 @@
         aagl.inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, aagl }:
-    let
+    outputs = {
+        self,
+        nixpkgs,
+        home-manager,
+        neovim-nightly-overlay,
+        aagl,
+    }: let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
         overlays = [
@@ -25,7 +30,7 @@
                     nixpkgs.overlays = overlays;
                 }
                 {
-                    imports = [ aagl.nixosModules.default ];
+                    imports = [aagl.nixosModules.default];
                     nix.settings = aagl.nixConfig;
                     programs.anime-game-launcher.enable = true;
                     programs.honkers-railway-launcher.enable = true;
