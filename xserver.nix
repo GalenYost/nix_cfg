@@ -1,11 +1,9 @@
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-
-{
+    config,
+    pkgs,
+    lib,
+    ...
+}: {
     services.xserver = {
         enable = true;
         autorun = true;
@@ -15,7 +13,13 @@
             layout = "us,ua,ru";
         };
     };
-    services.displayManager.defaultSession = "none+i3";
+    services.displayManager = {
+        autoLogin = {
+            enable = true;
+            user = "user";
+        };
+        defaultSession = "none+i3";
+    };
 
     qt = {
         enable = true;

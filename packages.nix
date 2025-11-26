@@ -81,9 +81,5 @@
         xorg.xrandr
         xclip
         xsel
-        # socials
-        telegram-desktop
-        discord
-        teams-for-linux
     ];
 }

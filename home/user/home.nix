@@ -15,11 +15,18 @@
         ./flameshot.nix
         ./gtk.nix
         ./tmux.nix
+        ./xdg.nix
     ];
 
     home.stateVersion = "25.05";
     home.username = "user";
     home.homeDirectory = "/home/user";
+
+    home.packages = with pkgs; [
+        telegram-desktop
+        discord
+        teams-for-linux
+    ];
 
     home.file = {
         "wallpaper.jpg" = {
