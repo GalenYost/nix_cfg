@@ -1,0 +1,18 @@
+input {
+    keyboard {
+        xkb {
+            layout "us,ua,ru"
+            options "grp:alt_shift_toggle,ctrl:nocaps"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        accel-profile "flat"
+        scroll-method "two-finger"
+    }
+
+    mouse {}
+    trackpoint {}
+}

@@ -1,0 +1,14 @@
+prefer-no-csd
+
+cursor {
+   hide-when-typing
+}
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+debug {
+   honor-xdg-activation-with-invalid-serial
+}
