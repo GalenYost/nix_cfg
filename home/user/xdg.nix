@@ -4,21 +4,8 @@
     pkgs,
     ...
 }: {
-    xdg.terminal-exec = {
-        enable = true;
-        settings = {
-            GNOME = [
-                "ghostty.desktop"
-            ];
-            default = ["ghostty.desktop"];
-        };
-    };
-
-    xdg.mime = {
-        enable = true;
-    };
-
     xdg.portal = {
+        enable = true;
         extraPortals = with pkgs; [
             xdg-desktop-portal-gtk
             xdg-desktop-portal-gnome
@@ -43,8 +30,8 @@
             "video/x-matroska" = ["mpv.desktop"];
             "video/x-msvideo" = ["mpv.desktop"];
             "video/webm" = ["mpv.desktop"];
-            "x-scheme-handler/http" = ["firefox.desktop"];
-            "x-scheme-handler/https" = ["firefox.desktop"];
+            "x-scheme-handler/http" = ["librewolf.desktop"];
+            "x-scheme-handler/https" = ["librewolf.desktop"];
         };
     };
 }

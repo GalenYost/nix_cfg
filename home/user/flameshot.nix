@@ -11,6 +11,7 @@
                 startupLaunch = true;
                 showStartupLaunchMessage = false;
                 disabledTrayIcon = true;
+                useGrimAdapter = true;
             };
         };
     };

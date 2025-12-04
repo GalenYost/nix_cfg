@@ -1,12 +1,14 @@
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-
-{
-    programs.niri.enable = true;
+    config,
+    pkgs,
+    lib,
+    inputs,
+    ...
+}: {
+    programs.niri = {
+        enable = true;
+        package = inputs.niri.packages.${pkgs.system}.niri;
+    };
     services.greetd = {
         enable = true;
         settings.default_session = {
@@ -17,6 +19,7 @@
 
     qt = {
         enable = true;
+        platformTheme = "gnome";
         style = "adwaita-dark";
     };
 
@@ -29,5 +32,8 @@
 
     environment.systemPackages = with pkgs; [
         gnome-keyring
+        swww
+        xwayland-satellite
+        wl-clipboard-rs
     ];
 }

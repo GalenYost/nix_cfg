@@ -18,7 +18,22 @@
         ./xdg.nix
     ];
 
-    home.stateVersion = "25.05";
+    qt = {
+        enable = true;
+        platformTheme.name = "adwaita";
+        style = {
+            name = "adwaita-dark";
+            package = pkgs.adwaita-qt;
+        };
+    };
+
+    home.pointerCursor = {
+        name = "Adwaita";
+        size = 22;
+        package = pkgs.adwaita-icon-theme;
+    };
+
+    home.stateVersion = "25.11";
     home.username = "user";
     home.homeDirectory = "/home/user";
 
@@ -29,6 +44,7 @@
     ];
 
     home.file = {
+        ".config/niri".source = ./niri;
         "wallpaper.jpg" = {
             target = "/home/user/wallpaper.jpg";
             source = ./wallpaper.jpg;

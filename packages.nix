@@ -35,14 +35,11 @@
         stdenv.cc
         zvm
         # tools
-        xwayland-satellite
         home-manager
-        wl-clipboard-rs
         ripgrep
         wget
         curl
         onefetch
-        fastfetch
         unzip
         p7zip
         pwvucontrol
@@ -60,19 +57,21 @@
         vulkan-tools
         mesa-demos
         fzf
+        jq
         imagemagick
+        grim
+        slurp
         # desktop
         protonvpn-gui
         mupdf
         mpv
         rnote
         polkit_gnome
-        swww
-        ungoogled-chromium
         aria2
         yt-dlp
         termusic
         onlyoffice-desktopeditors
+        librewolf
         # cosmetics
         gnome-themes-extra
         adwaita-icon-theme

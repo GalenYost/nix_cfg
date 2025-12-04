@@ -1,11 +1,10 @@
+include "startup.kdl"
+include "misc.kdl"
+include "binds.kdl"
+include "outputs.kdl"
+include "env.kdl"
+
 prefer-no-csd
-
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "xdg-desktop-portal-gtk"
-spawn-at-startup "xdg-desktop-portal-gnome"
-
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "~/wallpaper.jpg"
 
 environment {
    XDG_CURRENT_DESKTOP "niri"

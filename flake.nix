@@ -4,8 +4,7 @@
         home-manager.url = "github:nix-community/home-manager";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-        aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-        aagl.inputs.nixpkgs.follows = "nixpkgs";
+        niri.url = "github:YaLTeR/niri";
     };
 
     outputs = {
@@ -13,8 +12,9 @@
         nixpkgs,
         home-manager,
         neovim-nightly-overlay,
-        aagl,
-    }: let
+        niri,
+        ...
+    } @ inputs: let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
         overlays = [
@@ -23,17 +23,12 @@
     in {
         nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
             inherit system;
+            specialArgs = {inherit inputs;};
             modules = [
                 ./configuration.nix
                 home-manager.nixosModules.home-manager
                 {
                     nixpkgs.overlays = overlays;
-                }
-                {
-                    imports = [aagl.nixosModules.default];
-                    nix.settings = aagl.nixConfig;
-                    programs.anime-game-launcher.enable = true;
-                    programs.honkers-railway-launcher.enable = true;
                 }
             ];
         };

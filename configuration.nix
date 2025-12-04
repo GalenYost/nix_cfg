@@ -13,7 +13,8 @@
         ./packages.nix
         ./security.nix
 
-        ./xserver.nix
+        ./niri.nix
+        # ./xserver.nix
 
         ./git.nix
         ./bash.nix
@@ -30,5 +31,5 @@
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.multiLib = true;
 
-    system.stateVersion = "25.05";
+    system.stateVersion = "25.11";
 }
