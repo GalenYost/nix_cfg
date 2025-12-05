@@ -6,6 +6,25 @@
 }: {
     programs.yazi = {
         enable = true;
+        plugins = with pkgs; {
+            mount = yaziPlugins.mount;
+        };
+        flavors = {
+            tokyonight = ./tokyo-night.yazi;
+        };
+        theme.flavor.dark = "tokyonight";
+        keymap = {
+            mgr.prepend_keymap = [
+                {
+                    run = "remove --permanently --hovered";
+                    on = ["d"];
+                }
+                {
+                    run = "plugin mount";
+                    on = ["M"];
+                }
+            ];
+        };
         settings.yazi = {
             mgr.show_hidden = true;
             opener = {
