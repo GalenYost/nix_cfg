@@ -36,6 +36,7 @@
         homeConfigurations = {
             user = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
+                extraSpecialArgs = {inherit inputs;};
                 modules = [
                     {
                         nixpkgs.overlays = overlays;

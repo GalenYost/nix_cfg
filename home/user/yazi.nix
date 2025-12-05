@@ -16,7 +16,7 @@
         keymap = {
             mgr.prepend_keymap = [
                 {
-                    run = "remove --permanently --hovered";
+                    run = "remove --permanently";
                     on = ["d"];
                 }
                 {

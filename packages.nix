@@ -2,6 +2,7 @@
     config,
     pkgs,
     lib,
+    inputs,
     ...
 }: {
     fonts.packages = with pkgs; [
@@ -34,6 +35,7 @@
         gnumake
         stdenv.cc
         zvm
+        fasm
         # tools
         home-manager
         ripgrep
