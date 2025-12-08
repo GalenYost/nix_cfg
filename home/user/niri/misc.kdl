@@ -9,6 +9,6 @@ hotkey-overlay {
     hide-not-bound
 }
 
-debug {
-   honor-xdg-activation-with-invalid-serial
-}
+// debug {
+//    honor-xdg-activation-with-invalid-serial
+// }

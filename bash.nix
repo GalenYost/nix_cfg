@@ -1,20 +1,18 @@
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-
-{
+    config,
+    pkgs,
+    lib,
+    ...
+}: {
     programs.bash = {
         enable = true;
         completion.enable = true;
         enableLsColors = true;
         shellAliases = {
-            ls = "ls -l -a";
+            ls = "ls -l";
             bat = "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -e percentage -e state";
         };
-        promptInit = '' PS1='\[\033[38;2;24;185;2m\]\w\[\033[0m\]\[\033[38;2;14;186;186m\]> \[\033[0m\]' '';
+        promptInit = ''PS1='\[\033[38;2;24;185;2m\]\w\[\033[0m\]\[\033[38;2;14;186;186m\]> \[\033[0m\]' '';
         shellInit = ''
             download_songs() {
                 local list_file="$1"

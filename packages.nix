@@ -63,6 +63,7 @@
         imagemagick
         grim
         slurp
+        imv
         # desktop
         protonvpn-gui
         mupdf

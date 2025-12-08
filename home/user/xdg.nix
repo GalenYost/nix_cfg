@@ -32,6 +32,7 @@
             "video/webm" = ["mpv.desktop"];
             "x-scheme-handler/http" = ["librewolf.desktop"];
             "x-scheme-handler/https" = ["librewolf.desktop"];
+            "image/*" = ["imv.desktop"];
         };
     };
 }

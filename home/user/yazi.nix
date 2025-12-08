@@ -57,6 +57,13 @@
                         orphan = true;
                     }
                 ];
+                img = [
+                    {
+                        run = "imv $@";
+                        desc = "View image";
+                        orphan = true;
+                    }
+                ];
             };
             open = {
                 rules = [
@@ -77,8 +84,16 @@
                         use = "open";
                     }
                     {
+                        mime = "image/*";
+                        use = "img";
+                    }
+                    {
                         name = "*.{docx,pptx,xlsx,xlsm,doc}";
                         use = "office";
+                    }
+                    {
+                        name = "*.{png,jpg,jpeg,webp,webm,svg}";
+                        use = "img";
                     }
                 ];
             };
